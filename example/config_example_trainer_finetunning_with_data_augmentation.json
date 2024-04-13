@@ -93,11 +93,11 @@
     "num_loader_workers": 8,        // number of training data loader processes. Don't set it too big. 4-8 are goo
     
     // MODEL
-    "freeze_feature_extractor": true, // Whether to freeze the feature extractor layers of the model.
+    "freeze_feature_encoder": true, // Whether to freeze the feature encoder layers of the model.
     "attention_dropout": 0.1, // The dropout ratio for the attention probabilities.
     "activation_dropout": 0.1, // The dropout ratio for activations inside the fully connected layer.
     "hidden_dropout": 0.1, // The dropout probabilitiy for all fully connected layers in the embeddings, encoder, and pooler.
-    "feat_proj_dropout": 0.1, // The dropout probabilitiy for all 1D convolutional layers in feature extractor.
+    "feat_proj_dropout": 0.1, // The dropout probabilitiy for all 1D convolutional layers in feature encoder.
     "mask_time_prob": 0.1, //  Propability of each feature vector along the time axis to be chosen as the start of the vector span to be masked.
     "layerdrop": 0.1,  // The LayerDrop probability. 
     "gradient_checkpointing": true,  // If True, use gradient checkpointing to save memory at the expense of slower backward pass.

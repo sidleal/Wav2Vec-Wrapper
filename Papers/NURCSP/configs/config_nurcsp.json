@@ -1,6 +1,6 @@
 {
-    "run_name": "Wav2Vec-fine-tuning-CORAA",
-    "run_description": "Fine tuning CORAA",
+    "run_name": "Wav2Vec-fine-tuning-NURC-SP",
+    "run_description": "Fine tuning NURC-SP",
     "seed": 42,
     // AUDIO PARAMS
     "sampling_rate": 16000,
@@ -20,7 +20,7 @@
     "preprocess_dataset": false, // if true, the dataset will be pre-processed and saved in disk, otherwise the audio files will be loaded in each step. Preprocessing makes training faster, but requires much more disk space.
 
     // OPTIMIZER
-    "epochs": 40,                // total number of epochs to train.
+    "epochs": 100,                // total number of epochs to train.
     "lr": 0.00003,                  // Initial learning rate.
     "gradient_accumulation_steps": 24, 
 
@@ -46,20 +46,20 @@
 
 
     // PATHS
-    "output_path": "../checkpoints/Wav2Vec/CORAA-new/final-version/train/",
+    "output_path": "../checkpoints/Wav2Vec/NURC-SP/final-version/train/",
     // CACHE
     "dataset_cache": "../datasets/",
 
     // DATASETS
     "datasets":{
-        "files_path": "../datasets/CORAA_Dataset/", // relative path for audios It's will be join with the audio path CSV
+        "files_path": "../datasets/NURC-SP/audios/", // relative path for audios It's will be join with the audio path CSV
         "train":
             [
                // this dicts is pass directly for the load dataset see the documentation: https://huggingface.co/docs/datasets/package_reference/loading_methods.html#datasets.load_dataset 
             {
                 "name": "csv",
                 "path": "csv",
-                "data_files": ["../datasets/CORAA_Dataset/metadata_train_final.csv"], // csv files
+                "data_files": ["../datasets/NURC-SP/corpus_2_train.csv"], // csv files
                 "text_column": "text",
                 "path_column": "file_path"
             }
@@ -70,7 +70,7 @@
                 {
                     "name": "csv",
                     "path": "csv",
-                    "data_files": ["../datasets/CORAA_Dataset/metadata_dev_final.csv"], // csv files
+                    "data_files": ["../datasets/NURC-SP/corpus_2_dev.csv"], // csv files
                     "text_column": "text",
                     "path_column": "file_path"
                 }

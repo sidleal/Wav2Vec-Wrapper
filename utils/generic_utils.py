@@ -31,7 +31,7 @@ cer_transform = tr.Compose(
 wer_transform = jiwer.Compose([
     jiwer.RemoveMultipleSpaces(),
     jiwer.Strip(),
-    jiwer.SentencesToListOfWords(),
+    jiwer.ReduceToListOfListOfWords(),
     jiwer.RemoveEmptyStrings()
 ])
 

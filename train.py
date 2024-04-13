@@ -1,23 +1,13 @@
 # -*- coding: utf-8 -*-
 import os
-import re
 import json
-import random
 import argparse
 import pandas as pd
 
-import torchaudio
-import librosa
 import numpy as np
 
 from shutil import copyfile
 from utils.generic_utils import load_config, load_vocab
-
-from transformers import Wav2Vec2CTCTokenizer
-from transformers import Wav2Vec2FeatureExtractor
-from transformers import Wav2Vec2Processor
-from datasets import load_dataset, load_metric
-from datasets import ClassLabel
 
 import transformers
 from transformers import Wav2Vec2ForCTC
@@ -26,9 +16,11 @@ from transformers import Trainer
 from transformers.trainer_utils import get_last_checkpoint
 from transformers import EarlyStoppingCallback
 
+import evaluate
+
 transformers.logging.set_verbosity_info()
 
-wer_metric = load_metric("wer")
+wer_metric = evaluate.load("wer")
 
 def map_data_augmentation(aug_config):
     aug_name = aug_config['name']
@@ -143,9 +135,9 @@ if __name__ == '__main__':
         ctc_zero_infinity=True
     )
 
-    # freeze feature extractor
-    if config['freeze_feature_extractor']:
-        model.freeze_feature_extractor()
+    # freeze feature encoder
+    if config['freeze_feature_encoder']:
+        model.freeze_feature_encoder()
 
     training_args = TrainingArguments(
     output_dir=OUTPUT_DIR,

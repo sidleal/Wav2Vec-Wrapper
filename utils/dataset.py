@@ -130,8 +130,9 @@ class Dataset(object):
             if self.files_path:
                 batch[self.audio_path_column] = os.path.join(self.files_path, batch[self.audio_path_column])
             batch["input_values"] = batch[self.audio_path_column]
-            with self.processor.as_target_processor():
-                batch["labels"] = self.processor(batch[self.text_column]).input_ids
+#            with self.processor.as_target_processor():
+#                batch["labels"] = self.processor(batch[self.text_column]).input_ids
+            batch["labels"] = self.processor(text=batch[self.text_column]).input_ids
             batch["length"] = len(batch["labels"])
             return batch
 

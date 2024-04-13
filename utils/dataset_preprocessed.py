@@ -146,8 +146,7 @@ class Dataset(object):
         def prepare_dataset(batch):
             try:
                 batch["input_values"] = np.squeeze(self.processor(batch["speech"], sampling_rate=self.config['sampling_rate']).input_values)
-                with self.processor.as_target_processor():
-                    batch["labels"] = self.processor(batch["target_text"]).input_ids
+                batch["labels"] = self.processor(text=batch["target_text"]).input_ids
                 batch["length"] = len(batch["labels"])
             except:
                 print("Error during load of audio:", batch["target_text"])
