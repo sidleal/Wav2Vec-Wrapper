@@ -1,4 +1,4 @@
-FROM nvcr.io/nvidia/pytorch:22.11-py3
+FROM nvcr.io/nvidia/pytorch:24.03-py3
 
 WORKDIR /workspace/Wav2Vec-Wrapper/
 

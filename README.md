@@ -15,7 +15,7 @@ Clone the repository.
 
 ```bash
 git clone https://github.com/Edresson/Wav2Vec-Wrapper
-pip3 install -r requeriments.txt
+pip3 install -r requirements.txt
 ```
 
 ## Install Flashlight dependencies to use KenLM
