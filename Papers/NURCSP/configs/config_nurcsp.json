@@ -20,7 +20,7 @@
     "preprocess_dataset": false, // if true, the dataset will be pre-processed and saved in disk, otherwise the audio files will be loaded in each step. Preprocessing makes training faster, but requires much more disk space.
 
     // OPTIMIZER
-    "epochs": 100,                // total number of epochs to train.
+    "epochs": 1,                // total number of epochs to train.
     "lr": 0.00003,                  // Initial learning rate.
     "gradient_accumulation_steps": 24, 
 
