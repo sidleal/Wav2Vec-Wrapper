@@ -19,7 +19,7 @@ hostname
 cp -R /home/sidleal/nurcsp /output/sidleal/
 
 # Call Docker and run the code
-docker run --user "$(id -u):$(id -g)" --rm --gpus \"device=$CUDA_VISIBLE_DEVICES\" -v /output/sidleal/nurcsp:/workspace sidleal/nurcsp-arandu:0.1 -w /workspace/Wav2Vec-Wrapper python .\train.py -c Papers/NURCSP/configs/config_nurcsp.json
+docker run --user "$(id -u):$(id -g)" --rm --gpus \"device=$CUDA_VISIBLE_DEVICES\" -v /output/sidleal/nurcsp:/workspace -w /workspace/Wav2Vec-Wrapper sidleal/nurcsp-arandu:0.2 python train.py -c Papers/NURCSP/configs/config_nurcsp.json
 #docker run --user "$(id -u):$(id -g)" --rm --gpus \"device=$CUDA_VISIBLE_DEVICES\" nvcr.io/nvidia/pytorch:24.03-py3 nvidia-smi
 #docker run --user "$(id -u):$(id -g)" --rm --gpus \"device=$CUDA_VISIBLE_DEVICES\" nvcr.io/nvidia/pytorch:22.11-py3 nvidia-smi
 
