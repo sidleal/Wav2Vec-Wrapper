@@ -3,7 +3,7 @@
 # Set the slurm output file, this is where all command line output is redirected to. %j is replaced by the job id
 #SBATCH --output=slurm_out_%j.txt
 
-# Define computational resources. This job requests 8 CPUs and 1 GPU in a single node.
+# Define computational resources.
 #SBATCH -n 2 # Cores
 #SBATCH -N 1 # Number of nodes
 #SBATCH --gres=gpu:1
@@ -19,12 +19,10 @@ hostname
 cp -R /home/sidleal/nurcsp /output/sidleal/
 
 # Call Docker and run the code
-docker run --user "$(id -u):$(id -g)" --rm --gpus \"device=$CUDA_VISIBLE_DEVICES\" -v /output/sidleal/nurcsp:/workspace -w /workspace/Wav2Vec-Wrapper sidleal/nurcsp-arandu:0.2 python train.py -c Papers/NURCSP/configs/config_nurcsp.json
-#docker run --user "$(id -u):$(id -g)" --rm --gpus \"device=$CUDA_VISIBLE_DEVICES\" nvcr.io/nvidia/pytorch:24.03-py3 nvidia-smi
-#docker run --user "$(id -u):$(id -g)" --rm --gpus \"device=$CUDA_VISIBLE_DEVICES\" nvcr.io/nvidia/pytorch:22.11-py3 nvidia-smi
+docker run --user "$(id -u):$(id -g)" --rm --gpus \"device=$CUDA_VISIBLE_DEVICES\" -v /output/sidleal/nurcsp:/workspace -w /workspace/Wav2Vec-Wrapper sidleal/nurcsp-arandu:0.2 python train.py -c Papers/NURCSP/configs/config_nurcsp.json --checkpoint_path Edresson/wav2vec2-large-xlsr-coraa-portuguese
 
 # Move the results to the home folder 
-mv /output/sidleal/nurcsp/checkpoints /home/sidleal/nurcsp
+cp -r /output/sidleal/nurcsp/checkpoints /home/sidleal/nurcsp
 
 # Clean the output folder
 rm -r /output/sidleal/nurcsp

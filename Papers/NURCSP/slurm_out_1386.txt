@@ -1,0 +1,1009 @@
+Running on
+arandu
+
+=============
+== PyTorch ==
+=============
+
+NVIDIA Release 24.03 (build 85286408)
+PyTorch Version 2.3.0a0+40ec155e58
+Container image Copyright (c) 2024, NVIDIA CORPORATION & AFFILIATES. All rights reserved.
+Copyright (c) 2014-2024 Facebook Inc.
+Copyright (c) 2011-2014 Idiap Research Institute (Ronan Collobert)
+Copyright (c) 2012-2014 Deepmind Technologies    (Koray Kavukcuoglu)
+Copyright (c) 2011-2012 NEC Laboratories America (Koray Kavukcuoglu)
+Copyright (c) 2011-2013 NYU                      (Clement Farabet)
+Copyright (c) 2006-2010 NEC Laboratories America (Ronan Collobert, Leon Bottou, Iain Melvin, Jason Weston)
+Copyright (c) 2006      Idiap Research Institute (Samy Bengio)
+Copyright (c) 2001-2004 Idiap Research Institute (Ronan Collobert, Samy Bengio, Johnny Mariethoz)
+Copyright (c) 2015      Google Inc.
+Copyright (c) 2015      Yangqing Jia
+Copyright (c) 2013-2016 The Caffe contributors
+All rights reserved.
+
+Various files include modifications (c) NVIDIA CORPORATION & AFFILIATES.  All rights reserved.
+
+This container image and its contents are governed by the NVIDIA Deep Learning Container License.
+By pulling and using the container, you accept the terms and conditions of this license:
+https://developer.nvidia.com/ngc/nvidia-deep-learning-container-license
+
+Failed to detect NVIDIA driver version.
+
+Downloading builder script:   0%|          | 0.00/4.49k [00:00<?, ?B/s]Downloading builder script: 100%|██████████| 4.49k/4.49k [00:00<00:00, 17.0MB/s]
+Generating train split: 0 examples [00:00, ? examples/s]Generating train split: 1179 examples [00:00, 69771.91 examples/s]
+Generating train split: 0 examples [00:00, ? examples/s]Generating train split: 262 examples [00:00, 42999.99 examples/s]
+> Prepare Texts
+Map (num_proc=8):   0%|          | 0/1179 [00:00<?, ? examples/s]Map (num_proc=8): 100%|██████████| 1179/1179 [00:00<00:00, 7592.32 examples/s]
+Map (num_proc=8):   0%|          | 0/262 [00:00<?, ? examples/s]Map (num_proc=8): 100%|██████████| 262/262 [00:00<00:00, 1785.15 examples/s]
+> Prepare dataloader
+Map (num_proc=8):   0%|          | 0/1179 [00:00<?, ? examples/s]Map (num_proc=8): 100%|██████████| 1179/1179 [00:00<00:00, 6944.02 examples/s]
+Map (num_proc=8):   0%|          | 0/262 [00:00<?, ? examples/s]Map (num_proc=8): 100%|██████████| 262/262 [00:00<00:00, 1674.48 examples/s]
+Feature extractor saved in ../checkpoints/Wav2Vec/NURC-SP/final-version/train/preprocessor_config.json
+tokenizer config file saved in ../checkpoints/Wav2Vec/NURC-SP/final-version/train/tokenizer_config.json
+Special tokens file saved in ../checkpoints/Wav2Vec/NURC-SP/final-version/train/special_tokens_map.json
+loading configuration file config.json from cache at /workspace/hub/models--facebook--wav2vec2-large-xlsr-53/snapshots/c3f9d884181a224a6ac87bf8885c84d1cff3384f/config.json
+Model config Wav2Vec2Config {
+  "activation_dropout": 0.0,
+  "adapter_attn_dim": null,
+  "adapter_kernel_size": 3,
+  "adapter_stride": 2,
+  "add_adapter": false,
+  "apply_spec_augment": true,
+  "architectures": [
+    "Wav2Vec2ForPreTraining"
+  ],
+  "attention_dropout": 0.1,
+  "bos_token_id": 1,
+  "classifier_proj_size": 256,
+  "codevector_dim": 768,
+  "contrastive_logits_temperature": 0.1,
+  "conv_bias": true,
+  "conv_dim": [
+    512,
+    512,
+    512,
+    512,
+    512,
+    512,
+    512
+  ],
+  "conv_kernel": [
+    10,
+    3,
+    3,
+    3,
+    3,
+    2,
+    2
+  ],
+  "conv_stride": [
+    5,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2
+  ],
+  "ctc_loss_reduction": "mean",
+  "ctc_zero_infinity": true,
+  "diversity_loss_weight": 0.1,
+  "do_stable_layer_norm": true,
+  "eos_token_id": 2,
+  "feat_extract_activation": "gelu",
+  "feat_extract_dropout": 0.0,
+  "feat_extract_norm": "layer",
+  "feat_proj_dropout": 0.1,
+  "feat_quantizer_dropout": 0.0,
+  "final_dropout": 0.0,
+  "gradient_checkpointing": true,
+  "hidden_act": "gelu",
+  "hidden_dropout": 0.1,
+  "hidden_size": 1024,
+  "initializer_range": 0.02,
+  "intermediate_size": 4096,
+  "layer_norm_eps": 1e-05,
+  "layerdrop": 0.0,
+  "mask_channel_length": 10,
+  "mask_channel_min_space": 1,
+  "mask_channel_other": 0.0,
+  "mask_channel_prob": 0.0,
+  "mask_channel_selection": "static",
+  "mask_feature_length": 10,
+  "mask_feature_min_masks": 0,
+  "mask_feature_prob": 0.0,
+  "mask_time_length": 10,
+  "mask_time_min_masks": 2,
+  "mask_time_min_space": 1,
+  "mask_time_other": 0.0,
+  "mask_time_prob": 0.05,
+  "mask_time_selection": "static",
+  "model_type": "wav2vec2",
+  "num_adapter_layers": 3,
+  "num_attention_heads": 16,
+  "num_codevector_groups": 2,
+  "num_codevectors_per_group": 320,
+  "num_conv_pos_embedding_groups": 16,
+  "num_conv_pos_embeddings": 128,
+  "num_feat_extract_layers": 7,
+  "num_hidden_layers": 24,
+  "num_negatives": 100,
+  "output_hidden_size": 1024,
+  "pad_token_id": 0,
+  "proj_codevector_dim": 768,
+  "tdnn_dilation": [
+    1,
+    2,
+    3,
+    1,
+    1
+  ],
+  "tdnn_dim": [
+    512,
+    512,
+    512,
+    512,
+    1500
+  ],
+  "tdnn_kernel": [
+    5,
+    3,
+    3,
+    1,
+    1
+  ],
+  "transformers_version": "4.39.3",
+  "use_weighted_layer_sum": false,
+  "vocab_size": 45,
+  "xvector_output_dim": 512
+}
+
+loading weights file pytorch_model.bin from cache at /workspace/hub/models--facebook--wav2vec2-large-xlsr-53/snapshots/c3f9d884181a224a6ac87bf8885c84d1cff3384f/pytorch_model.bin
+Some weights of the model checkpoint at facebook/wav2vec2-large-xlsr-53 were not used when initializing Wav2Vec2ForCTC: ['project_hid.bias', 'project_hid.weight', 'project_q.bias', 'project_q.weight', 'quantizer.codevectors', 'quantizer.weight_proj.bias', 'quantizer.weight_proj.weight', 'wav2vec2.encoder.pos_conv_embed.conv.weight_g', 'wav2vec2.encoder.pos_conv_embed.conv.weight_v']
+- This IS expected if you are initializing Wav2Vec2ForCTC from the checkpoint of a model trained on another task or with another architecture (e.g. initializing a BertForSequenceClassification model from a BertForPreTraining model).
+- This IS NOT expected if you are initializing Wav2Vec2ForCTC from the checkpoint of a model that you expect to be exactly identical (initializing a BertForSequenceClassification model from a BertForSequenceClassification model).
+Some weights of Wav2Vec2ForCTC were not initialized from the model checkpoint at facebook/wav2vec2-large-xlsr-53 and are newly initialized: ['lm_head.bias', 'lm_head.weight', 'wav2vec2.encoder.pos_conv_embed.conv.parametrizations.weight.original0', 'wav2vec2.encoder.pos_conv_embed.conv.parametrizations.weight.original1']
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+PyTorch: setting up devices
+/usr/local/lib/python3.10/dist-packages/accelerate/accelerator.py:436: FutureWarning: Passing the following arguments to `Accelerator` is deprecated and will be removed in version 1.0 of Accelerate: dict_keys(['dispatch_batches', 'split_batches', 'even_batches', 'use_seedable_sampler']). Please pass an `accelerate.DataLoaderConfiguration` instead: 
+dataloader_config = DataLoaderConfiguration(dispatch_batches=None, split_batches=False, even_batches=True, use_seedable_sampler=True)
+  warnings.warn(
+Using auto half precision backend
+The following columns in the training set don't have a corresponding argument in `Wav2Vec2ForCTC.forward` and have been ignored: length. If length are not expected by `Wav2Vec2ForCTC.forward`,  you can safely ignore this message.
+***** Running training *****
+  Num examples = 1,179
+  Num Epochs = 10
+  Instantaneous batch size per device = 8
+  Total train batch size (w. parallel, distributed & accumulation) = 192
+  Gradient Accumulation steps = 24
+  Total optimization steps = 60
+  Number of trainable parameters = 311,274,669
+> Starting Training
+  0%|          | 0/60 [00:00<?, ?it/s]/usr/local/lib/python3.10/dist-packages/transformers/models/wav2vec2/processing_wav2vec2.py:156: UserWarning: `as_target_processor` is deprecated and will be removed in v5 of Transformers. You can process your labels by using the argument `text` of the regular `__call__` method (either in the same call as your audio inputs, or in a separate call.
+  warnings.warn(
+/usr/local/lib/python3.10/dist-packages/transformers/models/wav2vec2/processing_wav2vec2.py:156: UserWarning: `as_target_processor` is deprecated and will be removed in v5 of Transformers. You can process your labels by using the argument `text` of the regular `__call__` method (either in the same call as your audio inputs, or in a separate call.
+  warnings.warn(
+/usr/local/lib/python3.10/dist-packages/transformers/models/wav2vec2/processing_wav2vec2.py:156: UserWarning: `as_target_processor` is deprecated and will be removed in v5 of Transformers. You can process your labels by using the argument `text` of the regular `__call__` method (either in the same call as your audio inputs, or in a separate call.
+  warnings.warn(
+/usr/local/lib/python3.10/dist-packages/transformers/models/wav2vec2/processing_wav2vec2.py:156: UserWarning: `as_target_processor` is deprecated and will be removed in v5 of Transformers. You can process your labels by using the argument `text` of the regular `__call__` method (either in the same call as your audio inputs, or in a separate call.
+  warnings.warn(
+/usr/local/lib/python3.10/dist-packages/transformers/models/wav2vec2/processing_wav2vec2.py:156: UserWarning: `as_target_processor` is deprecated and will be removed in v5 of Transformers. You can process your labels by using the argument `text` of the regular `__call__` method (either in the same call as your audio inputs, or in a separate call.
+  warnings.warn(
+/usr/local/lib/python3.10/dist-packages/transformers/models/wav2vec2/processing_wav2vec2.py:156: UserWarning: `as_target_processor` is deprecated and will be removed in v5 of Transformers. You can process your labels by using the argument `text` of the regular `__call__` method (either in the same call as your audio inputs, or in a separate call.
+  warnings.warn(
+/usr/local/lib/python3.10/dist-packages/transformers/models/wav2vec2/processing_wav2vec2.py:156: UserWarning: `as_target_processor` is deprecated and will be removed in v5 of Transformers. You can process your labels by using the argument `text` of the regular `__call__` method (either in the same call as your audio inputs, or in a separate call.
+  warnings.warn(
+/usr/local/lib/python3.10/dist-packages/transformers/models/wav2vec2/processing_wav2vec2.py:156: UserWarning: `as_target_processor` is deprecated and will be removed in v5 of Transformers. You can process your labels by using the argument `text` of the regular `__call__` method (either in the same call as your audio inputs, or in a separate call.
+  warnings.warn(
+  2%|▏         | 1/60 [00:12<12:45, 12.98s/it]                                                2%|▏         | 1/60 [00:12<12:45, 12.98s/it]  3%|▎         | 2/60 [00:27<13:36, 14.07s/it]  5%|▌         | 3/60 [00:39<12:25, 13.07s/it]  7%|▋         | 4/60 [00:53<12:25, 13.31s/it]  8%|▊         | 5/60 [01:08<12:39, 13.81s/it] 10%|█         | 6/60 [01:20<12:04, 13.41s/it]The following columns in the evaluation set don't have a corresponding argument in `Wav2Vec2ForCTC.forward` and have been ignored: length. If length are not expected by `Wav2Vec2ForCTC.forward`,  you can safely ignore this message.
+***** Running Evaluation *****
+  Num examples = 262
+  Batch size = 8
+{'loss': 14.4188, 'grad_norm': 7.249952793121338, 'learning_rate': 9.999999999999999e-06, 'epoch': 0.16}
+/usr/local/lib/python3.10/dist-packages/transformers/models/wav2vec2/processing_wav2vec2.py:156: UserWarning: `as_target_processor` is deprecated and will be removed in v5 of Transformers. You can process your labels by using the argument `text` of the regular `__call__` method (either in the same call as your audio inputs, or in a separate call.
+  warnings.warn(
+/usr/local/lib/python3.10/dist-packages/transformers/models/wav2vec2/processing_wav2vec2.py:156: UserWarning: `as_target_processor` is deprecated and will be removed in v5 of Transformers. You can process your labels by using the argument `text` of the regular `__call__` method (either in the same call as your audio inputs, or in a separate call.
+  warnings.warn(
+/usr/local/lib/python3.10/dist-packages/transformers/models/wav2vec2/processing_wav2vec2.py:156: UserWarning: `as_target_processor` is deprecated and will be removed in v5 of Transformers. You can process your labels by using the argument `text` of the regular `__call__` method (either in the same call as your audio inputs, or in a separate call.
+  warnings.warn(
+/usr/local/lib/python3.10/dist-packages/transformers/models/wav2vec2/processing_wav2vec2.py:156: UserWarning: `as_target_processor` is deprecated and will be removed in v5 of Transformers. You can process your labels by using the argument `text` of the regular `__call__` method (either in the same call as your audio inputs, or in a separate call.
+  warnings.warn(
+/usr/local/lib/python3.10/dist-packages/transformers/models/wav2vec2/processing_wav2vec2.py:156: UserWarning: `as_target_processor` is deprecated and will be removed in v5 of Transformers. You can process your labels by using the argument `text` of the regular `__call__` method (either in the same call as your audio inputs, or in a separate call.
+  warnings.warn(
+/usr/local/lib/python3.10/dist-packages/transformers/models/wav2vec2/processing_wav2vec2.py:156: UserWarning: `as_target_processor` is deprecated and will be removed in v5 of Transformers. You can process your labels by using the argument `text` of the regular `__call__` method (either in the same call as your audio inputs, or in a separate call.
+  warnings.warn(
+/usr/local/lib/python3.10/dist-packages/transformers/models/wav2vec2/processing_wav2vec2.py:156: UserWarning: `as_target_processor` is deprecated and will be removed in v5 of Transformers. You can process your labels by using the argument `text` of the regular `__call__` method (either in the same call as your audio inputs, or in a separate call.
+  warnings.warn(
+/usr/local/lib/python3.10/dist-packages/transformers/models/wav2vec2/processing_wav2vec2.py:156: UserWarning: `as_target_processor` is deprecated and will be removed in v5 of Transformers. You can process your labels by using the argument `text` of the regular `__call__` method (either in the same call as your audio inputs, or in a separate call.
+  warnings.warn(
+
+  0%|          | 0/33 [00:00<?, ?it/s][A
+  6%|▌         | 2/33 [00:00<00:06,  4.66it/s][A
+  9%|▉         | 3/33 [00:01<00:10,  2.75it/s][A
+ 12%|█▏        | 4/33 [00:01<00:13,  2.11it/s][A
+ 15%|█▌        | 5/33 [00:02<00:13,  2.11it/s][A
+ 18%|█▊        | 6/33 [00:02<00:12,  2.24it/s][A
+ 21%|██        | 7/33 [00:03<00:16,  1.58it/s][A
+ 24%|██▍       | 8/33 [00:04<00:14,  1.73it/s][A
+ 27%|██▋       | 9/33 [00:04<00:15,  1.54it/s][A
+ 30%|███       | 10/33 [00:05<00:15,  1.47it/s][A
+ 33%|███▎      | 11/33 [00:06<00:14,  1.48it/s][A
+ 36%|███▋      | 12/33 [00:06<00:13,  1.61it/s][A
+ 39%|███▉      | 13/33 [00:07<00:11,  1.72it/s][A
+ 42%|████▏     | 14/33 [00:07<00:10,  1.86it/s][A
+ 45%|████▌     | 15/33 [00:08<00:09,  1.83it/s][A
+ 48%|████▊     | 16/33 [00:08<00:08,  2.02it/s][A
+ 52%|█████▏    | 17/33 [00:08<00:07,  2.25it/s][A
+ 55%|█████▍    | 18/33 [00:09<00:07,  2.13it/s][A
+ 58%|█████▊    | 19/33 [00:09<00:06,  2.04it/s][A
+ 61%|██████    | 20/33 [00:10<00:05,  2.20it/s][A
+ 64%|██████▎   | 21/33 [00:10<00:05,  2.04it/s][A
+ 67%|██████▋   | 22/33 [00:11<00:04,  2.40it/s][A
+ 70%|██████▉   | 23/33 [00:11<00:03,  2.59it/s][A
+ 73%|███████▎  | 24/33 [00:11<00:03,  2.55it/s][A
+ 76%|███████▌  | 25/33 [00:12<00:04,  1.92it/s][A
+ 79%|███████▉  | 26/33 [00:13<00:03,  1.78it/s][A
+ 82%|████████▏ | 27/33 [00:13<00:02,  2.09it/s][A
+ 85%|████████▍ | 28/33 [00:14<00:02,  2.14it/s][A
+ 88%|████████▊ | 29/33 [00:14<00:01,  2.29it/s][A
+ 91%|█████████ | 30/33 [00:14<00:01,  2.31it/s][A
+ 94%|█████████▍| 31/33 [00:15<00:00,  2.47it/s][A
+ 97%|█████████▋| 32/33 [00:15<00:00,  2.06it/s][A
+100%|██████████| 33/33 [00:16<00:00,  2.21it/s][A                                              
+                                               [A 10%|█         | 6/60 [01:40<12:04, 13.41s/it]
+100%|██████████| 33/33 [00:16<00:00,  2.21it/s][A
+                                               [ASaving model checkpoint to ../checkpoints/Wav2Vec/NURC-SP/final-version/train/checkpoint-6
+Configuration saved in ../checkpoints/Wav2Vec/NURC-SP/final-version/train/checkpoint-6/config.json
+Model weights saved in ../checkpoints/Wav2Vec/NURC-SP/final-version/train/checkpoint-6/model.safetensors
+Feature extractor saved in ../checkpoints/Wav2Vec/NURC-SP/final-version/train/checkpoint-6/preprocessor_config.json
+{'eval_loss': 15.390324592590332, 'eval_wer': 1.0, 'eval_runtime': 17.4587, 'eval_samples_per_second': 15.007, 'eval_steps_per_second': 1.89, 'epoch': 0.97}
+/usr/local/lib/python3.10/dist-packages/transformers/models/wav2vec2/processing_wav2vec2.py:156: UserWarning: `as_target_processor` is deprecated and will be removed in v5 of Transformers. You can process your labels by using the argument `text` of the regular `__call__` method (either in the same call as your audio inputs, or in a separate call.
+  warnings.warn(
+/usr/local/lib/python3.10/dist-packages/transformers/models/wav2vec2/processing_wav2vec2.py:156: UserWarning: `as_target_processor` is deprecated and will be removed in v5 of Transformers. You can process your labels by using the argument `text` of the regular `__call__` method (either in the same call as your audio inputs, or in a separate call.
+  warnings.warn(
+/usr/local/lib/python3.10/dist-packages/transformers/models/wav2vec2/processing_wav2vec2.py:156: UserWarning: `as_target_processor` is deprecated and will be removed in v5 of Transformers. You can process your labels by using the argument `text` of the regular `__call__` method (either in the same call as your audio inputs, or in a separate call.
+  warnings.warn(
+/usr/local/lib/python3.10/dist-packages/transformers/models/wav2vec2/processing_wav2vec2.py:156: UserWarning: `as_target_processor` is deprecated and will be removed in v5 of Transformers. You can process your labels by using the argument `text` of the regular `__call__` method (either in the same call as your audio inputs, or in a separate call.
+  warnings.warn(
+/usr/local/lib/python3.10/dist-packages/transformers/models/wav2vec2/processing_wav2vec2.py:156: UserWarning: `as_target_processor` is deprecated and will be removed in v5 of Transformers. You can process your labels by using the argument `text` of the regular `__call__` method (either in the same call as your audio inputs, or in a separate call.
+  warnings.warn(
+/usr/local/lib/python3.10/dist-packages/transformers/models/wav2vec2/processing_wav2vec2.py:156: UserWarning: `as_target_processor` is deprecated and will be removed in v5 of Transformers. You can process your labels by using the argument `text` of the regular `__call__` method (either in the same call as your audio inputs, or in a separate call.
+  warnings.warn(
+/usr/local/lib/python3.10/dist-packages/transformers/models/wav2vec2/processing_wav2vec2.py:156: UserWarning: `as_target_processor` is deprecated and will be removed in v5 of Transformers. You can process your labels by using the argument `text` of the regular `__call__` method (either in the same call as your audio inputs, or in a separate call.
+  warnings.warn(
+/usr/local/lib/python3.10/dist-packages/transformers/models/wav2vec2/processing_wav2vec2.py:156: UserWarning: `as_target_processor` is deprecated and will be removed in v5 of Transformers. You can process your labels by using the argument `text` of the regular `__call__` method (either in the same call as your audio inputs, or in a separate call.
+  warnings.warn(
+ 12%|█▏        | 7/60 [01:58<18:46, 21.25s/it] 13%|█▎        | 8/60 [02:10<15:50, 18.28s/it] 15%|█▌        | 9/60 [02:22<14:05, 16.58s/it] 17%|█▋        | 10/60 [02:36<12:56, 15.53s/it] 18%|█▊        | 11/60 [02:48<11:56, 14.61s/it] 20%|██        | 12/60 [03:00<11:04, 13.84s/it]The following columns in the evaluation set don't have a corresponding argument in `Wav2Vec2ForCTC.forward` and have been ignored: length. If length are not expected by `Wav2Vec2ForCTC.forward`,  you can safely ignore this message.
+***** Running Evaluation *****
+  Num examples = 262
+  Batch size = 8
+/usr/local/lib/python3.10/dist-packages/transformers/models/wav2vec2/processing_wav2vec2.py:156: UserWarning: `as_target_processor` is deprecated and will be removed in v5 of Transformers. You can process your labels by using the argument `text` of the regular `__call__` method (either in the same call as your audio inputs, or in a separate call.
+  warnings.warn(
+/usr/local/lib/python3.10/dist-packages/transformers/models/wav2vec2/processing_wav2vec2.py:156: UserWarning: `as_target_processor` is deprecated and will be removed in v5 of Transformers. You can process your labels by using the argument `text` of the regular `__call__` method (either in the same call as your audio inputs, or in a separate call.
+  warnings.warn(
+/usr/local/lib/python3.10/dist-packages/transformers/models/wav2vec2/processing_wav2vec2.py:156: UserWarning: `as_target_processor` is deprecated and will be removed in v5 of Transformers. You can process your labels by using the argument `text` of the regular `__call__` method (either in the same call as your audio inputs, or in a separate call.
+  warnings.warn(
+/usr/local/lib/python3.10/dist-packages/transformers/models/wav2vec2/processing_wav2vec2.py:156: UserWarning: `as_target_processor` is deprecated and will be removed in v5 of Transformers. You can process your labels by using the argument `text` of the regular `__call__` method (either in the same call as your audio inputs, or in a separate call.
+  warnings.warn(
+/usr/local/lib/python3.10/dist-packages/transformers/models/wav2vec2/processing_wav2vec2.py:156: UserWarning: `as_target_processor` is deprecated and will be removed in v5 of Transformers. You can process your labels by using the argument `text` of the regular `__call__` method (either in the same call as your audio inputs, or in a separate call.
+  warnings.warn(
+/usr/local/lib/python3.10/dist-packages/transformers/models/wav2vec2/processing_wav2vec2.py:156: UserWarning: `as_target_processor` is deprecated and will be removed in v5 of Transformers. You can process your labels by using the argument `text` of the regular `__call__` method (either in the same call as your audio inputs, or in a separate call.
+  warnings.warn(
+/usr/local/lib/python3.10/dist-packages/transformers/models/wav2vec2/processing_wav2vec2.py:156: UserWarning: `as_target_processor` is deprecated and will be removed in v5 of Transformers. You can process your labels by using the argument `text` of the regular `__call__` method (either in the same call as your audio inputs, or in a separate call.
+  warnings.warn(
+/usr/local/lib/python3.10/dist-packages/transformers/models/wav2vec2/processing_wav2vec2.py:156: UserWarning: `as_target_processor` is deprecated and will be removed in v5 of Transformers. You can process your labels by using the argument `text` of the regular `__call__` method (either in the same call as your audio inputs, or in a separate call.
+  warnings.warn(
+
+  0%|          | 0/33 [00:00<?, ?it/s][A
+  6%|▌         | 2/33 [00:00<00:06,  4.85it/s][A
+  9%|▉         | 3/33 [00:00<00:10,  2.80it/s][A
+ 12%|█▏        | 4/33 [00:01<00:13,  2.13it/s][A
+ 15%|█▌        | 5/33 [00:02<00:13,  2.12it/s][A
+ 18%|█▊        | 6/33 [00:02<00:11,  2.25it/s][A
+ 21%|██        | 7/33 [00:03<00:16,  1.59it/s][A
+ 24%|██▍       | 8/33 [00:03<00:14,  1.73it/s][A
+ 27%|██▋       | 9/33 [00:04<00:15,  1.54it/s][A
+ 30%|███       | 10/33 [00:05<00:15,  1.47it/s][A
+ 33%|███▎      | 11/33 [00:06<00:14,  1.48it/s][A
+ 36%|███▋      | 12/33 [00:06<00:13,  1.58it/s][A
+ 39%|███▉      | 13/33 [00:07<00:11,  1.68it/s][A
+ 42%|████▏     | 14/33 [00:07<00:10,  1.83it/s][A
+ 45%|████▌     | 15/33 [00:08<00:08,  2.02it/s][A
+ 48%|████▊     | 16/33 [00:08<00:07,  2.40it/s][A
+ 52%|█████▏    | 17/33 [00:08<00:05,  2.83it/s][A
+ 55%|█████▍    | 18/33 [00:08<00:05,  2.79it/s][A
+ 58%|█████▊    | 19/33 [00:09<00:05,  2.43it/s][A
+ 61%|██████    | 20/33 [00:09<00:05,  2.51it/s][A
+ 64%|██████▎   | 21/33 [00:10<00:05,  2.21it/s][A
+ 67%|██████▋   | 22/33 [00:10<00:04,  2.55it/s][A
+ 70%|██████▉   | 23/33 [00:10<00:03,  2.72it/s][A
+ 73%|███████▎  | 24/33 [00:11<00:03,  2.63it/s][A
+ 76%|███████▌  | 25/33 [00:12<00:04,  1.96it/s][A
+ 79%|███████▉  | 26/33 [00:12<00:03,  1.80it/s][A
+ 82%|████████▏ | 27/33 [00:13<00:02,  2.11it/s][A
+ 85%|████████▍ | 28/33 [00:13<00:02,  2.16it/s][A
+ 88%|████████▊ | 29/33 [00:13<00:01,  2.27it/s][A
+ 91%|█████████ | 30/33 [00:14<00:01,  2.29it/s][A
+ 94%|█████████▍| 31/33 [00:14<00:00,  2.45it/s][A
+ 97%|█████████▋| 32/33 [00:15<00:00,  2.13it/s][A
+100%|██████████| 33/33 [00:15<00:00,  2.27it/s][A                                               
+                                               [A 20%|██        | 12/60 [03:20<11:04, 13.84s/it]
+100%|██████████| 33/33 [00:16<00:00,  2.27it/s][A
+                                               [ASaving model checkpoint to ../checkpoints/Wav2Vec/NURC-SP/final-version/train/checkpoint-12
+Configuration saved in ../checkpoints/Wav2Vec/NURC-SP/final-version/train/checkpoint-12/config.json
+Model weights saved in ../checkpoints/Wav2Vec/NURC-SP/final-version/train/checkpoint-12/model.safetensors
+Feature extractor saved in ../checkpoints/Wav2Vec/NURC-SP/final-version/train/checkpoint-12/preprocessor_config.json
+{'eval_loss': 15.268423080444336, 'eval_wer': 1.0, 'eval_runtime': 16.8111, 'eval_samples_per_second': 15.585, 'eval_steps_per_second': 1.963, 'epoch': 1.95}
+/usr/local/lib/python3.10/dist-packages/transformers/models/wav2vec2/processing_wav2vec2.py:156: UserWarning: `as_target_processor` is deprecated and will be removed in v5 of Transformers. You can process your labels by using the argument `text` of the regular `__call__` method (either in the same call as your audio inputs, or in a separate call.
+  warnings.warn(
+/usr/local/lib/python3.10/dist-packages/transformers/models/wav2vec2/processing_wav2vec2.py:156: UserWarning: `as_target_processor` is deprecated and will be removed in v5 of Transformers. You can process your labels by using the argument `text` of the regular `__call__` method (either in the same call as your audio inputs, or in a separate call.
+  warnings.warn(
+/usr/local/lib/python3.10/dist-packages/transformers/models/wav2vec2/processing_wav2vec2.py:156: UserWarning: `as_target_processor` is deprecated and will be removed in v5 of Transformers. You can process your labels by using the argument `text` of the regular `__call__` method (either in the same call as your audio inputs, or in a separate call.
+  warnings.warn(
+/usr/local/lib/python3.10/dist-packages/transformers/models/wav2vec2/processing_wav2vec2.py:156: UserWarning: `as_target_processor` is deprecated and will be removed in v5 of Transformers. You can process your labels by using the argument `text` of the regular `__call__` method (either in the same call as your audio inputs, or in a separate call.
+  warnings.warn(
+/usr/local/lib/python3.10/dist-packages/transformers/models/wav2vec2/processing_wav2vec2.py:156: UserWarning: `as_target_processor` is deprecated and will be removed in v5 of Transformers. You can process your labels by using the argument `text` of the regular `__call__` method (either in the same call as your audio inputs, or in a separate call.
+  warnings.warn(
+/usr/local/lib/python3.10/dist-packages/transformers/models/wav2vec2/processing_wav2vec2.py:156: UserWarning: `as_target_processor` is deprecated and will be removed in v5 of Transformers. You can process your labels by using the argument `text` of the regular `__call__` method (either in the same call as your audio inputs, or in a separate call.
+  warnings.warn(
+/usr/local/lib/python3.10/dist-packages/transformers/models/wav2vec2/processing_wav2vec2.py:156: UserWarning: `as_target_processor` is deprecated and will be removed in v5 of Transformers. You can process your labels by using the argument `text` of the regular `__call__` method (either in the same call as your audio inputs, or in a separate call.
+  warnings.warn(
+/usr/local/lib/python3.10/dist-packages/transformers/models/wav2vec2/processing_wav2vec2.py:156: UserWarning: `as_target_processor` is deprecated and will be removed in v5 of Transformers. You can process your labels by using the argument `text` of the regular `__call__` method (either in the same call as your audio inputs, or in a separate call.
+  warnings.warn(
+ 22%|██▏       | 13/60 [03:35<15:53, 20.29s/it] 23%|██▎       | 14/60 [03:47<13:38, 17.80s/it] 25%|██▌       | 15/60 [04:00<12:15, 16.35s/it] 27%|██▋       | 16/60 [04:15<11:33, 15.76s/it] 28%|██▊       | 17/60 [04:27<10:27, 14.59s/it] 30%|███       | 18/60 [04:40<10:03, 14.37s/it]The following columns in the evaluation set don't have a corresponding argument in `Wav2Vec2ForCTC.forward` and have been ignored: length. If length are not expected by `Wav2Vec2ForCTC.forward`,  you can safely ignore this message.
+***** Running Evaluation *****
+  Num examples = 262
+  Batch size = 8
+/usr/local/lib/python3.10/dist-packages/transformers/models/wav2vec2/processing_wav2vec2.py:156: UserWarning: `as_target_processor` is deprecated and will be removed in v5 of Transformers. You can process your labels by using the argument `text` of the regular `__call__` method (either in the same call as your audio inputs, or in a separate call.
+  warnings.warn(
+/usr/local/lib/python3.10/dist-packages/transformers/models/wav2vec2/processing_wav2vec2.py:156: UserWarning: `as_target_processor` is deprecated and will be removed in v5 of Transformers. You can process your labels by using the argument `text` of the regular `__call__` method (either in the same call as your audio inputs, or in a separate call.
+  warnings.warn(
+/usr/local/lib/python3.10/dist-packages/transformers/models/wav2vec2/processing_wav2vec2.py:156: UserWarning: `as_target_processor` is deprecated and will be removed in v5 of Transformers. You can process your labels by using the argument `text` of the regular `__call__` method (either in the same call as your audio inputs, or in a separate call.
+  warnings.warn(
+/usr/local/lib/python3.10/dist-packages/transformers/models/wav2vec2/processing_wav2vec2.py:156: UserWarning: `as_target_processor` is deprecated and will be removed in v5 of Transformers. You can process your labels by using the argument `text` of the regular `__call__` method (either in the same call as your audio inputs, or in a separate call.
+  warnings.warn(
+/usr/local/lib/python3.10/dist-packages/transformers/models/wav2vec2/processing_wav2vec2.py:156: UserWarning: `as_target_processor` is deprecated and will be removed in v5 of Transformers. You can process your labels by using the argument `text` of the regular `__call__` method (either in the same call as your audio inputs, or in a separate call.
+  warnings.warn(
+/usr/local/lib/python3.10/dist-packages/transformers/models/wav2vec2/processing_wav2vec2.py:156: UserWarning: `as_target_processor` is deprecated and will be removed in v5 of Transformers. You can process your labels by using the argument `text` of the regular `__call__` method (either in the same call as your audio inputs, or in a separate call.
+  warnings.warn(
+/usr/local/lib/python3.10/dist-packages/transformers/models/wav2vec2/processing_wav2vec2.py:156: UserWarning: `as_target_processor` is deprecated and will be removed in v5 of Transformers. You can process your labels by using the argument `text` of the regular `__call__` method (either in the same call as your audio inputs, or in a separate call.
+  warnings.warn(
+/usr/local/lib/python3.10/dist-packages/transformers/models/wav2vec2/processing_wav2vec2.py:156: UserWarning: `as_target_processor` is deprecated and will be removed in v5 of Transformers. You can process your labels by using the argument `text` of the regular `__call__` method (either in the same call as your audio inputs, or in a separate call.
+  warnings.warn(
+
+  0%|          | 0/33 [00:00<?, ?it/s][A
+  6%|▌         | 2/33 [00:00<00:05,  5.80it/s][A
+  9%|▉         | 3/33 [00:00<00:08,  3.36it/s][A
+ 12%|█▏        | 4/33 [00:01<00:10,  2.70it/s][A
+ 15%|█▌        | 5/33 [00:01<00:09,  2.80it/s][A
+ 18%|█▊        | 6/33 [00:01<00:09,  2.89it/s][A
+ 21%|██        | 7/33 [00:02<00:14,  1.78it/s][A
+ 24%|██▍       | 8/33 [00:03<00:13,  1.88it/s][A
+ 27%|██▋       | 9/33 [00:04<00:14,  1.62it/s][A
+ 30%|███       | 10/33 [00:05<00:15,  1.52it/s][A
+ 33%|███▎      | 11/33 [00:05<00:14,  1.51it/s][A
+ 36%|███▋      | 12/33 [00:06<00:13,  1.60it/s][A
+ 39%|███▉      | 13/33 [00:06<00:11,  1.70it/s][A
+ 42%|████▏     | 14/33 [00:07<00:10,  1.85it/s][A
+ 45%|████▌     | 15/33 [00:07<00:09,  1.82it/s][A
+ 48%|████▊     | 16/33 [00:08<00:08,  2.01it/s][A
+ 52%|█████▏    | 17/33 [00:08<00:07,  2.24it/s][A
+ 55%|█████▍    | 18/33 [00:08<00:07,  2.13it/s][A
+ 58%|█████▊    | 19/33 [00:09<00:06,  2.03it/s][A
+ 61%|██████    | 20/33 [00:09<00:05,  2.20it/s][A
+ 64%|██████▎   | 21/33 [00:10<00:05,  2.04it/s][A
+ 67%|██████▋   | 22/33 [00:10<00:04,  2.39it/s][A
+ 70%|██████▉   | 23/33 [00:11<00:03,  2.58it/s][A
+ 73%|███████▎  | 24/33 [00:11<00:03,  2.61it/s][A
+ 76%|███████▌  | 25/33 [00:12<00:04,  1.98it/s][A
+ 79%|███████▉  | 26/33 [00:12<00:03,  1.82it/s][A
+ 82%|████████▏ | 27/33 [00:13<00:02,  2.12it/s][A
+ 85%|████████▍ | 28/33 [00:13<00:02,  2.17it/s][A
+ 88%|████████▊ | 29/33 [00:13<00:01,  2.29it/s][A
+ 91%|█████████ | 30/33 [00:14<00:01,  2.30it/s][A
+ 94%|█████████▍| 31/33 [00:14<00:00,  2.45it/s][A
+ 97%|█████████▋| 32/33 [00:15<00:00,  2.04it/s][A
+100%|██████████| 33/33 [00:15<00:00,  2.19it/s][A                                               
+                                               [A 30%|███       | 18/60 [05:02<10:03, 14.37s/it]
+100%|██████████| 33/33 [00:16<00:00,  2.19it/s][A
+                                               [ASaving model checkpoint to ../checkpoints/Wav2Vec/NURC-SP/final-version/train/checkpoint-18
+Configuration saved in ../checkpoints/Wav2Vec/NURC-SP/final-version/train/checkpoint-18/config.json
+Model weights saved in ../checkpoints/Wav2Vec/NURC-SP/final-version/train/checkpoint-18/model.safetensors
+Feature extractor saved in ../checkpoints/Wav2Vec/NURC-SP/final-version/train/checkpoint-18/preprocessor_config.json
+{'eval_loss': 14.781607627868652, 'eval_wer': 1.0, 'eval_runtime': 16.8721, 'eval_samples_per_second': 15.529, 'eval_steps_per_second': 1.956, 'epoch': 2.92}
+/usr/local/lib/python3.10/dist-packages/transformers/models/wav2vec2/processing_wav2vec2.py:156: UserWarning: `as_target_processor` is deprecated and will be removed in v5 of Transformers. You can process your labels by using the argument `text` of the regular `__call__` method (either in the same call as your audio inputs, or in a separate call.
+  warnings.warn(
+/usr/local/lib/python3.10/dist-packages/transformers/models/wav2vec2/processing_wav2vec2.py:156: UserWarning: `as_target_processor` is deprecated and will be removed in v5 of Transformers. You can process your labels by using the argument `text` of the regular `__call__` method (either in the same call as your audio inputs, or in a separate call.
+  warnings.warn(
+/usr/local/lib/python3.10/dist-packages/transformers/models/wav2vec2/processing_wav2vec2.py:156: UserWarning: `as_target_processor` is deprecated and will be removed in v5 of Transformers. You can process your labels by using the argument `text` of the regular `__call__` method (either in the same call as your audio inputs, or in a separate call.
+  warnings.warn(
+/usr/local/lib/python3.10/dist-packages/transformers/models/wav2vec2/processing_wav2vec2.py:156: UserWarning: `as_target_processor` is deprecated and will be removed in v5 of Transformers. You can process your labels by using the argument `text` of the regular `__call__` method (either in the same call as your audio inputs, or in a separate call.
+  warnings.warn(
+/usr/local/lib/python3.10/dist-packages/transformers/models/wav2vec2/processing_wav2vec2.py:156: UserWarning: `as_target_processor` is deprecated and will be removed in v5 of Transformers. You can process your labels by using the argument `text` of the regular `__call__` method (either in the same call as your audio inputs, or in a separate call.
+  warnings.warn(
+/usr/local/lib/python3.10/dist-packages/transformers/models/wav2vec2/processing_wav2vec2.py:156: UserWarning: `as_target_processor` is deprecated and will be removed in v5 of Transformers. You can process your labels by using the argument `text` of the regular `__call__` method (either in the same call as your audio inputs, or in a separate call.
+  warnings.warn(
+/usr/local/lib/python3.10/dist-packages/transformers/models/wav2vec2/processing_wav2vec2.py:156: UserWarning: `as_target_processor` is deprecated and will be removed in v5 of Transformers. You can process your labels by using the argument `text` of the regular `__call__` method (either in the same call as your audio inputs, or in a separate call.
+  warnings.warn(
+/usr/local/lib/python3.10/dist-packages/transformers/models/wav2vec2/processing_wav2vec2.py:156: UserWarning: `as_target_processor` is deprecated and will be removed in v5 of Transformers. You can process your labels by using the argument `text` of the regular `__call__` method (either in the same call as your audio inputs, or in a separate call.
+  warnings.warn(
+ 32%|███▏      | 19/60 [05:16<14:05, 20.61s/it] 33%|███▎      | 20/60 [05:30<12:31, 18.78s/it] 35%|███▌      | 21/60 [05:43<11:04, 17.03s/it] 37%|███▋      | 22/60 [05:55<09:53, 15.63s/it] 38%|███▊      | 23/60 [06:07<08:51, 14.36s/it] 40%|████      | 24/60 [06:22<08:45, 14.59s/it]The following columns in the evaluation set don't have a corresponding argument in `Wav2Vec2ForCTC.forward` and have been ignored: length. If length are not expected by `Wav2Vec2ForCTC.forward`,  you can safely ignore this message.
+***** Running Evaluation *****
+  Num examples = 262
+  Batch size = 8
+/usr/local/lib/python3.10/dist-packages/transformers/models/wav2vec2/processing_wav2vec2.py:156: UserWarning: `as_target_processor` is deprecated and will be removed in v5 of Transformers. You can process your labels by using the argument `text` of the regular `__call__` method (either in the same call as your audio inputs, or in a separate call.
+  warnings.warn(
+/usr/local/lib/python3.10/dist-packages/transformers/models/wav2vec2/processing_wav2vec2.py:156: UserWarning: `as_target_processor` is deprecated and will be removed in v5 of Transformers. You can process your labels by using the argument `text` of the regular `__call__` method (either in the same call as your audio inputs, or in a separate call.
+  warnings.warn(
+/usr/local/lib/python3.10/dist-packages/transformers/models/wav2vec2/processing_wav2vec2.py:156: UserWarning: `as_target_processor` is deprecated and will be removed in v5 of Transformers. You can process your labels by using the argument `text` of the regular `__call__` method (either in the same call as your audio inputs, or in a separate call.
+  warnings.warn(
+/usr/local/lib/python3.10/dist-packages/transformers/models/wav2vec2/processing_wav2vec2.py:156: UserWarning: `as_target_processor` is deprecated and will be removed in v5 of Transformers. You can process your labels by using the argument `text` of the regular `__call__` method (either in the same call as your audio inputs, or in a separate call.
+  warnings.warn(
+/usr/local/lib/python3.10/dist-packages/transformers/models/wav2vec2/processing_wav2vec2.py:156: UserWarning: `as_target_processor` is deprecated and will be removed in v5 of Transformers. You can process your labels by using the argument `text` of the regular `__call__` method (either in the same call as your audio inputs, or in a separate call.
+  warnings.warn(
+/usr/local/lib/python3.10/dist-packages/transformers/models/wav2vec2/processing_wav2vec2.py:156: UserWarning: `as_target_processor` is deprecated and will be removed in v5 of Transformers. You can process your labels by using the argument `text` of the regular `__call__` method (either in the same call as your audio inputs, or in a separate call.
+  warnings.warn(
+/usr/local/lib/python3.10/dist-packages/transformers/models/wav2vec2/processing_wav2vec2.py:156: UserWarning: `as_target_processor` is deprecated and will be removed in v5 of Transformers. You can process your labels by using the argument `text` of the regular `__call__` method (either in the same call as your audio inputs, or in a separate call.
+  warnings.warn(
+/usr/local/lib/python3.10/dist-packages/transformers/models/wav2vec2/processing_wav2vec2.py:156: UserWarning: `as_target_processor` is deprecated and will be removed in v5 of Transformers. You can process your labels by using the argument `text` of the regular `__call__` method (either in the same call as your audio inputs, or in a separate call.
+  warnings.warn(
+
+  0%|          | 0/33 [00:00<?, ?it/s][A
+  6%|▌         | 2/33 [00:00<00:06,  4.93it/s][A
+  9%|▉         | 3/33 [00:00<00:10,  2.82it/s][A
+ 12%|█▏        | 4/33 [00:01<00:13,  2.15it/s][A
+ 15%|█▌        | 5/33 [00:02<00:13,  2.13it/s][A
+ 18%|█▊        | 6/33 [00:02<00:11,  2.26it/s][A
+ 21%|██        | 7/33 [00:03<00:16,  1.59it/s][A
+ 24%|██▍       | 8/33 [00:03<00:14,  1.74it/s][A
+ 27%|██▋       | 9/33 [00:04<00:15,  1.55it/s][A
+ 30%|███       | 10/33 [00:05<00:15,  1.47it/s][A
+ 33%|███▎      | 11/33 [00:06<00:14,  1.48it/s][A
+ 36%|███▋      | 12/33 [00:06<00:13,  1.58it/s][A
+ 39%|███▉      | 13/33 [00:07<00:11,  1.73it/s][A
+ 42%|████▏     | 14/33 [00:07<00:10,  1.87it/s][A
+ 45%|████▌     | 15/33 [00:08<00:09,  1.83it/s][A
+ 48%|████▊     | 16/33 [00:08<00:08,  2.02it/s][A
+ 52%|█████▏    | 17/33 [00:08<00:07,  2.25it/s][A
+ 55%|█████▍    | 18/33 [00:09<00:07,  2.14it/s][A
+ 58%|█████▊    | 19/33 [00:09<00:06,  2.04it/s][A
+ 61%|██████    | 20/33 [00:10<00:05,  2.22it/s][A
+ 64%|██████▎   | 21/33 [00:10<00:05,  2.05it/s][A
+ 67%|██████▋   | 22/33 [00:11<00:04,  2.40it/s][A
+ 70%|██████▉   | 23/33 [00:11<00:03,  2.60it/s][A
+ 73%|███████▎  | 24/33 [00:11<00:03,  2.55it/s][A
+ 76%|███████▌  | 25/33 [00:12<00:04,  1.93it/s][A
+ 79%|███████▉  | 26/33 [00:13<00:03,  1.78it/s][A
+ 82%|████████▏ | 27/33 [00:13<00:02,  2.09it/s][A
+ 85%|████████▍ | 28/33 [00:14<00:02,  2.15it/s][A
+ 88%|████████▊ | 29/33 [00:14<00:01,  2.27it/s][A
+ 91%|█████████ | 30/33 [00:14<00:01,  2.29it/s][A
+ 94%|█████████▍| 31/33 [00:15<00:00,  2.44it/s][A
+ 97%|█████████▋| 32/33 [00:15<00:00,  2.03it/s][A
+100%|██████████| 33/33 [00:16<00:00,  2.19it/s][A                                               
+                                               [A 40%|████      | 24/60 [06:46<08:45, 14.59s/it]
+100%|██████████| 33/33 [00:16<00:00,  2.19it/s][A
+                                               [ASaving model checkpoint to ../checkpoints/Wav2Vec/NURC-SP/final-version/train/checkpoint-24
+Configuration saved in ../checkpoints/Wav2Vec/NURC-SP/final-version/train/checkpoint-24/config.json
+Model weights saved in ../checkpoints/Wav2Vec/NURC-SP/final-version/train/checkpoint-24/model.safetensors
+Feature extractor saved in ../checkpoints/Wav2Vec/NURC-SP/final-version/train/checkpoint-24/preprocessor_config.json
+Deleting older checkpoint [../checkpoints/Wav2Vec/NURC-SP/final-version/train/checkpoint-6] due to args.save_total_limit
+{'eval_loss': 11.454695701599121, 'eval_wer': 1.0, 'eval_runtime': 17.4198, 'eval_samples_per_second': 15.04, 'eval_steps_per_second': 1.894, 'epoch': 3.89}
+/usr/local/lib/python3.10/dist-packages/transformers/models/wav2vec2/processing_wav2vec2.py:156: UserWarning: `as_target_processor` is deprecated and will be removed in v5 of Transformers. You can process your labels by using the argument `text` of the regular `__call__` method (either in the same call as your audio inputs, or in a separate call.
+  warnings.warn(
+/usr/local/lib/python3.10/dist-packages/transformers/models/wav2vec2/processing_wav2vec2.py:156: UserWarning: `as_target_processor` is deprecated and will be removed in v5 of Transformers. You can process your labels by using the argument `text` of the regular `__call__` method (either in the same call as your audio inputs, or in a separate call.
+  warnings.warn(
+/usr/local/lib/python3.10/dist-packages/transformers/models/wav2vec2/processing_wav2vec2.py:156: UserWarning: `as_target_processor` is deprecated and will be removed in v5 of Transformers. You can process your labels by using the argument `text` of the regular `__call__` method (either in the same call as your audio inputs, or in a separate call.
+  warnings.warn(
+/usr/local/lib/python3.10/dist-packages/transformers/models/wav2vec2/processing_wav2vec2.py:156: UserWarning: `as_target_processor` is deprecated and will be removed in v5 of Transformers. You can process your labels by using the argument `text` of the regular `__call__` method (either in the same call as your audio inputs, or in a separate call.
+  warnings.warn(
+/usr/local/lib/python3.10/dist-packages/transformers/models/wav2vec2/processing_wav2vec2.py:156: UserWarning: `as_target_processor` is deprecated and will be removed in v5 of Transformers. You can process your labels by using the argument `text` of the regular `__call__` method (either in the same call as your audio inputs, or in a separate call.
+  warnings.warn(
+/usr/local/lib/python3.10/dist-packages/transformers/models/wav2vec2/processing_wav2vec2.py:156: UserWarning: `as_target_processor` is deprecated and will be removed in v5 of Transformers. You can process your labels by using the argument `text` of the regular `__call__` method (either in the same call as your audio inputs, or in a separate call.
+  warnings.warn(
+/usr/local/lib/python3.10/dist-packages/transformers/models/wav2vec2/processing_wav2vec2.py:156: UserWarning: `as_target_processor` is deprecated and will be removed in v5 of Transformers. You can process your labels by using the argument `text` of the regular `__call__` method (either in the same call as your audio inputs, or in a separate call.
+  warnings.warn(
+/usr/local/lib/python3.10/dist-packages/transformers/models/wav2vec2/processing_wav2vec2.py:156: UserWarning: `as_target_processor` is deprecated and will be removed in v5 of Transformers. You can process your labels by using the argument `text` of the regular `__call__` method (either in the same call as your audio inputs, or in a separate call.
+  warnings.warn(
+ 42%|████▏     | 25/60 [06:57<12:06, 20.76s/it] 43%|████▎     | 26/60 [07:10<10:22, 18.29s/it] 45%|████▌     | 27/60 [07:23<09:19, 16.96s/it] 47%|████▋     | 28/60 [07:38<08:35, 16.12s/it] 48%|████▊     | 29/60 [07:51<07:52, 15.24s/it] 50%|█████     | 30/60 [08:04<07:14, 14.48s/it]The following columns in the evaluation set don't have a corresponding argument in `Wav2Vec2ForCTC.forward` and have been ignored: length. If length are not expected by `Wav2Vec2ForCTC.forward`,  you can safely ignore this message.
+***** Running Evaluation *****
+  Num examples = 262
+  Batch size = 8
+/usr/local/lib/python3.10/dist-packages/transformers/models/wav2vec2/processing_wav2vec2.py:156: UserWarning: `as_target_processor` is deprecated and will be removed in v5 of Transformers. You can process your labels by using the argument `text` of the regular `__call__` method (either in the same call as your audio inputs, or in a separate call.
+  warnings.warn(
+/usr/local/lib/python3.10/dist-packages/transformers/models/wav2vec2/processing_wav2vec2.py:156: UserWarning: `as_target_processor` is deprecated and will be removed in v5 of Transformers. You can process your labels by using the argument `text` of the regular `__call__` method (either in the same call as your audio inputs, or in a separate call.
+  warnings.warn(
+/usr/local/lib/python3.10/dist-packages/transformers/models/wav2vec2/processing_wav2vec2.py:156: UserWarning: `as_target_processor` is deprecated and will be removed in v5 of Transformers. You can process your labels by using the argument `text` of the regular `__call__` method (either in the same call as your audio inputs, or in a separate call.
+  warnings.warn(
+/usr/local/lib/python3.10/dist-packages/transformers/models/wav2vec2/processing_wav2vec2.py:156: UserWarning: `as_target_processor` is deprecated and will be removed in v5 of Transformers. You can process your labels by using the argument `text` of the regular `__call__` method (either in the same call as your audio inputs, or in a separate call.
+  warnings.warn(
+/usr/local/lib/python3.10/dist-packages/transformers/models/wav2vec2/processing_wav2vec2.py:156: UserWarning: `as_target_processor` is deprecated and will be removed in v5 of Transformers. You can process your labels by using the argument `text` of the regular `__call__` method (either in the same call as your audio inputs, or in a separate call.
+  warnings.warn(
+/usr/local/lib/python3.10/dist-packages/transformers/models/wav2vec2/processing_wav2vec2.py:156: UserWarning: `as_target_processor` is deprecated and will be removed in v5 of Transformers. You can process your labels by using the argument `text` of the regular `__call__` method (either in the same call as your audio inputs, or in a separate call.
+  warnings.warn(
+/usr/local/lib/python3.10/dist-packages/transformers/models/wav2vec2/processing_wav2vec2.py:156: UserWarning: `as_target_processor` is deprecated and will be removed in v5 of Transformers. You can process your labels by using the argument `text` of the regular `__call__` method (either in the same call as your audio inputs, or in a separate call.
+  warnings.warn(
+/usr/local/lib/python3.10/dist-packages/transformers/models/wav2vec2/processing_wav2vec2.py:156: UserWarning: `as_target_processor` is deprecated and will be removed in v5 of Transformers. You can process your labels by using the argument `text` of the regular `__call__` method (either in the same call as your audio inputs, or in a separate call.
+  warnings.warn(
+
+  0%|          | 0/33 [00:00<?, ?it/s][A
+  6%|▌         | 2/33 [00:00<00:06,  4.88it/s][A
+  9%|▉         | 3/33 [00:00<00:10,  2.80it/s][A
+ 12%|█▏        | 4/33 [00:01<00:13,  2.20it/s][A
+ 15%|█▌        | 5/33 [00:02<00:12,  2.17it/s][A
+ 18%|█▊        | 6/33 [00:02<00:11,  2.29it/s][A
+ 21%|██        | 7/33 [00:03<00:16,  1.60it/s][A
+ 24%|██▍       | 8/33 [00:03<00:14,  1.74it/s][A
+ 27%|██▋       | 9/33 [00:04<00:14,  1.64it/s][A
+ 30%|███       | 10/33 [00:05<00:14,  1.62it/s][A
+ 33%|███▎      | 11/33 [00:05<00:13,  1.67it/s][A
+ 36%|███▋      | 12/33 [00:06<00:11,  1.86it/s][A
+ 39%|███▉      | 13/33 [00:06<00:09,  2.09it/s][A
+ 42%|████▏     | 14/33 [00:06<00:08,  2.33it/s][A
+ 45%|████▌     | 15/33 [00:07<00:08,  2.12it/s][A
+ 48%|████▊     | 16/33 [00:07<00:07,  2.26it/s][A
+ 52%|█████▏    | 17/33 [00:08<00:06,  2.45it/s][A
+ 55%|█████▍    | 18/33 [00:08<00:06,  2.25it/s][A
+ 58%|█████▊    | 19/33 [00:09<00:06,  2.11it/s][A
+ 61%|██████    | 20/33 [00:09<00:05,  2.28it/s][A
+ 64%|██████▎   | 21/33 [00:10<00:05,  2.08it/s][A
+ 67%|██████▋   | 22/33 [00:10<00:04,  2.43it/s][A
+ 70%|██████▉   | 23/33 [00:10<00:03,  2.62it/s][A
+ 73%|███████▎  | 24/33 [00:11<00:03,  2.56it/s][A
+ 76%|███████▌  | 25/33 [00:11<00:04,  1.93it/s][A
+ 79%|███████▉  | 26/33 [00:12<00:03,  1.79it/s][A
+ 82%|████████▏ | 27/33 [00:12<00:02,  2.09it/s][A
+ 85%|████████▍ | 28/33 [00:13<00:02,  2.15it/s][A
+ 88%|████████▊ | 29/33 [00:13<00:01,  2.27it/s][A
+ 91%|█████████ | 30/33 [00:14<00:01,  2.29it/s][A
+ 94%|█████████▍| 31/33 [00:14<00:00,  2.44it/s][A
+ 97%|█████████▋| 32/33 [00:15<00:00,  2.04it/s][A
+100%|██████████| 33/33 [00:15<00:00,  2.19it/s][A                                               
+                                               [A 50%|█████     | 30/60 [08:29<07:14, 14.48s/it]
+100%|██████████| 33/33 [00:15<00:00,  2.19it/s][A
+                                               [ASaving model checkpoint to ../checkpoints/Wav2Vec/NURC-SP/final-version/train/checkpoint-30
+Configuration saved in ../checkpoints/Wav2Vec/NURC-SP/final-version/train/checkpoint-30/config.json
+Model weights saved in ../checkpoints/Wav2Vec/NURC-SP/final-version/train/checkpoint-30/model.safetensors
+Feature extractor saved in ../checkpoints/Wav2Vec/NURC-SP/final-version/train/checkpoint-30/preprocessor_config.json
+Deleting older checkpoint [../checkpoints/Wav2Vec/NURC-SP/final-version/train/checkpoint-12] due to args.save_total_limit
+{'eval_loss': 9.673099517822266, 'eval_wer': 1.0, 'eval_runtime': 16.725, 'eval_samples_per_second': 15.665, 'eval_steps_per_second': 1.973, 'epoch': 4.86}
+/usr/local/lib/python3.10/dist-packages/transformers/models/wav2vec2/processing_wav2vec2.py:156: UserWarning: `as_target_processor` is deprecated and will be removed in v5 of Transformers. You can process your labels by using the argument `text` of the regular `__call__` method (either in the same call as your audio inputs, or in a separate call.
+  warnings.warn(
+/usr/local/lib/python3.10/dist-packages/transformers/models/wav2vec2/processing_wav2vec2.py:156: UserWarning: `as_target_processor` is deprecated and will be removed in v5 of Transformers. You can process your labels by using the argument `text` of the regular `__call__` method (either in the same call as your audio inputs, or in a separate call.
+  warnings.warn(
+/usr/local/lib/python3.10/dist-packages/transformers/models/wav2vec2/processing_wav2vec2.py:156: UserWarning: `as_target_processor` is deprecated and will be removed in v5 of Transformers. You can process your labels by using the argument `text` of the regular `__call__` method (either in the same call as your audio inputs, or in a separate call.
+  warnings.warn(
+/usr/local/lib/python3.10/dist-packages/transformers/models/wav2vec2/processing_wav2vec2.py:156: UserWarning: `as_target_processor` is deprecated and will be removed in v5 of Transformers. You can process your labels by using the argument `text` of the regular `__call__` method (either in the same call as your audio inputs, or in a separate call.
+  warnings.warn(
+/usr/local/lib/python3.10/dist-packages/transformers/models/wav2vec2/processing_wav2vec2.py:156: UserWarning: `as_target_processor` is deprecated and will be removed in v5 of Transformers. You can process your labels by using the argument `text` of the regular `__call__` method (either in the same call as your audio inputs, or in a separate call.
+  warnings.warn(
+/usr/local/lib/python3.10/dist-packages/transformers/models/wav2vec2/processing_wav2vec2.py:156: UserWarning: `as_target_processor` is deprecated and will be removed in v5 of Transformers. You can process your labels by using the argument `text` of the regular `__call__` method (either in the same call as your audio inputs, or in a separate call.
+  warnings.warn(
+/usr/local/lib/python3.10/dist-packages/transformers/models/wav2vec2/processing_wav2vec2.py:156: UserWarning: `as_target_processor` is deprecated and will be removed in v5 of Transformers. You can process your labels by using the argument `text` of the regular `__call__` method (either in the same call as your audio inputs, or in a separate call.
+  warnings.warn(
+/usr/local/lib/python3.10/dist-packages/transformers/models/wav2vec2/processing_wav2vec2.py:156: UserWarning: `as_target_processor` is deprecated and will be removed in v5 of Transformers. You can process your labels by using the argument `text` of the regular `__call__` method (either in the same call as your audio inputs, or in a separate call.
+  warnings.warn(
+ 52%|█████▏    | 31/60 [08:39<10:02, 20.79s/it] 53%|█████▎    | 32/60 [08:52<08:35, 18.40s/it] 55%|█████▌    | 33/60 [09:04<07:22, 16.38s/it] 57%|█████▋    | 34/60 [09:15<06:28, 14.94s/it] 58%|█████▊    | 35/60 [09:28<06:01, 14.47s/it] 60%|██████    | 36/60 [09:43<05:50, 14.59s/it] 62%|██████▏   | 37/60 [09:54<05:11, 13.54s/it]The following columns in the evaluation set don't have a corresponding argument in `Wav2Vec2ForCTC.forward` and have been ignored: length. If length are not expected by `Wav2Vec2ForCTC.forward`,  you can safely ignore this message.
+***** Running Evaluation *****
+  Num examples = 262
+  Batch size = 8
+/usr/local/lib/python3.10/dist-packages/transformers/models/wav2vec2/processing_wav2vec2.py:156: UserWarning: `as_target_processor` is deprecated and will be removed in v5 of Transformers. You can process your labels by using the argument `text` of the regular `__call__` method (either in the same call as your audio inputs, or in a separate call.
+  warnings.warn(
+/usr/local/lib/python3.10/dist-packages/transformers/models/wav2vec2/processing_wav2vec2.py:156: UserWarning: `as_target_processor` is deprecated and will be removed in v5 of Transformers. You can process your labels by using the argument `text` of the regular `__call__` method (either in the same call as your audio inputs, or in a separate call.
+  warnings.warn(
+/usr/local/lib/python3.10/dist-packages/transformers/models/wav2vec2/processing_wav2vec2.py:156: UserWarning: `as_target_processor` is deprecated and will be removed in v5 of Transformers. You can process your labels by using the argument `text` of the regular `__call__` method (either in the same call as your audio inputs, or in a separate call.
+  warnings.warn(
+/usr/local/lib/python3.10/dist-packages/transformers/models/wav2vec2/processing_wav2vec2.py:156: UserWarning: `as_target_processor` is deprecated and will be removed in v5 of Transformers. You can process your labels by using the argument `text` of the regular `__call__` method (either in the same call as your audio inputs, or in a separate call.
+  warnings.warn(
+/usr/local/lib/python3.10/dist-packages/transformers/models/wav2vec2/processing_wav2vec2.py:156: UserWarning: `as_target_processor` is deprecated and will be removed in v5 of Transformers. You can process your labels by using the argument `text` of the regular `__call__` method (either in the same call as your audio inputs, or in a separate call.
+  warnings.warn(
+/usr/local/lib/python3.10/dist-packages/transformers/models/wav2vec2/processing_wav2vec2.py:156: UserWarning: `as_target_processor` is deprecated and will be removed in v5 of Transformers. You can process your labels by using the argument `text` of the regular `__call__` method (either in the same call as your audio inputs, or in a separate call.
+  warnings.warn(
+/usr/local/lib/python3.10/dist-packages/transformers/models/wav2vec2/processing_wav2vec2.py:156: UserWarning: `as_target_processor` is deprecated and will be removed in v5 of Transformers. You can process your labels by using the argument `text` of the regular `__call__` method (either in the same call as your audio inputs, or in a separate call.
+  warnings.warn(
+/usr/local/lib/python3.10/dist-packages/transformers/models/wav2vec2/processing_wav2vec2.py:156: UserWarning: `as_target_processor` is deprecated and will be removed in v5 of Transformers. You can process your labels by using the argument `text` of the regular `__call__` method (either in the same call as your audio inputs, or in a separate call.
+  warnings.warn(
+
+  0%|          | 0/33 [00:00<?, ?it/s][A
+  6%|▌         | 2/33 [00:00<00:06,  4.88it/s][A
+  9%|▉         | 3/33 [00:00<00:10,  2.78it/s][A
+ 12%|█▏        | 4/33 [00:01<00:13,  2.13it/s][A
+ 15%|█▌        | 5/33 [00:02<00:13,  2.12it/s][A
+ 18%|█▊        | 6/33 [00:02<00:11,  2.26it/s][A
+ 21%|██        | 7/33 [00:03<00:16,  1.59it/s][A
+ 24%|██▍       | 8/33 [00:03<00:14,  1.74it/s][A
+ 27%|██▋       | 9/33 [00:04<00:15,  1.55it/s][A
+ 30%|███       | 10/33 [00:05<00:15,  1.47it/s][A
+ 33%|███▎      | 11/33 [00:06<00:14,  1.48it/s][A
+ 36%|███▋      | 12/33 [00:06<00:13,  1.58it/s][A
+ 39%|███▉      | 13/33 [00:07<00:11,  1.68it/s][A
+ 42%|████▏     | 14/33 [00:07<00:10,  1.83it/s][A
+ 45%|████▌     | 15/33 [00:08<00:09,  1.81it/s][A
+ 48%|████▊     | 16/33 [00:08<00:08,  2.00it/s][A
+ 52%|█████▏    | 17/33 [00:08<00:07,  2.23it/s][A
+ 55%|█████▍    | 18/33 [00:09<00:07,  2.13it/s][A
+ 58%|█████▊    | 19/33 [00:10<00:06,  2.03it/s][A
+ 61%|██████    | 20/33 [00:10<00:05,  2.20it/s][A
+ 64%|██████▎   | 21/33 [00:10<00:05,  2.04it/s][A
+ 67%|██████▋   | 22/33 [00:11<00:04,  2.39it/s][A
+ 70%|██████▉   | 23/33 [00:11<00:03,  2.59it/s][A
+ 73%|███████▎  | 24/33 [00:11<00:03,  2.54it/s][A
+ 76%|███████▌  | 25/33 [00:12<00:04,  1.92it/s][A
+ 79%|███████▉  | 26/33 [00:13<00:03,  1.83it/s][A
+ 82%|████████▏ | 27/33 [00:13<00:02,  2.13it/s][A
+ 85%|████████▍ | 28/33 [00:14<00:02,  2.18it/s][A
+ 88%|████████▊ | 29/33 [00:14<00:01,  2.29it/s][A
+ 91%|█████████ | 30/33 [00:14<00:01,  2.31it/s][A
+ 94%|█████████▍| 31/33 [00:15<00:00,  2.45it/s][A
+ 97%|█████████▋| 32/33 [00:15<00:00,  2.05it/s][A
+100%|██████████| 33/33 [00:16<00:00,  2.20it/s][A                                               
+                                               [A 62%|██████▏   | 37/60 [10:12<05:11, 13.54s/it]
+100%|██████████| 33/33 [00:16<00:00,  2.20it/s][A
+                                               [ASaving model checkpoint to ../checkpoints/Wav2Vec/NURC-SP/final-version/train/checkpoint-37
+Configuration saved in ../checkpoints/Wav2Vec/NURC-SP/final-version/train/checkpoint-37/config.json
+Model weights saved in ../checkpoints/Wav2Vec/NURC-SP/final-version/train/checkpoint-37/model.safetensors
+Feature extractor saved in ../checkpoints/Wav2Vec/NURC-SP/final-version/train/checkpoint-37/preprocessor_config.json
+Deleting older checkpoint [../checkpoints/Wav2Vec/NURC-SP/final-version/train/checkpoint-18] due to args.save_total_limit
+{'eval_loss': 8.078947067260742, 'eval_wer': 1.0, 'eval_runtime': 17.4789, 'eval_samples_per_second': 14.99, 'eval_steps_per_second': 1.888, 'epoch': 6.0}
+/usr/local/lib/python3.10/dist-packages/transformers/models/wav2vec2/processing_wav2vec2.py:156: UserWarning: `as_target_processor` is deprecated and will be removed in v5 of Transformers. You can process your labels by using the argument `text` of the regular `__call__` method (either in the same call as your audio inputs, or in a separate call.
+  warnings.warn(
+/usr/local/lib/python3.10/dist-packages/transformers/models/wav2vec2/processing_wav2vec2.py:156: UserWarning: `as_target_processor` is deprecated and will be removed in v5 of Transformers. You can process your labels by using the argument `text` of the regular `__call__` method (either in the same call as your audio inputs, or in a separate call.
+  warnings.warn(
+/usr/local/lib/python3.10/dist-packages/transformers/models/wav2vec2/processing_wav2vec2.py:156: UserWarning: `as_target_processor` is deprecated and will be removed in v5 of Transformers. You can process your labels by using the argument `text` of the regular `__call__` method (either in the same call as your audio inputs, or in a separate call.
+  warnings.warn(
+/usr/local/lib/python3.10/dist-packages/transformers/models/wav2vec2/processing_wav2vec2.py:156: UserWarning: `as_target_processor` is deprecated and will be removed in v5 of Transformers. You can process your labels by using the argument `text` of the regular `__call__` method (either in the same call as your audio inputs, or in a separate call.
+  warnings.warn(
+/usr/local/lib/python3.10/dist-packages/transformers/models/wav2vec2/processing_wav2vec2.py:156: UserWarning: `as_target_processor` is deprecated and will be removed in v5 of Transformers. You can process your labels by using the argument `text` of the regular `__call__` method (either in the same call as your audio inputs, or in a separate call.
+  warnings.warn(
+/usr/local/lib/python3.10/dist-packages/transformers/models/wav2vec2/processing_wav2vec2.py:156: UserWarning: `as_target_processor` is deprecated and will be removed in v5 of Transformers. You can process your labels by using the argument `text` of the regular `__call__` method (either in the same call as your audio inputs, or in a separate call.
+  warnings.warn(
+/usr/local/lib/python3.10/dist-packages/transformers/models/wav2vec2/processing_wav2vec2.py:156: UserWarning: `as_target_processor` is deprecated and will be removed in v5 of Transformers. You can process your labels by using the argument `text` of the regular `__call__` method (either in the same call as your audio inputs, or in a separate call.
+  warnings.warn(
+/usr/local/lib/python3.10/dist-packages/transformers/models/wav2vec2/processing_wav2vec2.py:156: UserWarning: `as_target_processor` is deprecated and will be removed in v5 of Transformers. You can process your labels by using the argument `text` of the regular `__call__` method (either in the same call as your audio inputs, or in a separate call.
+  warnings.warn(
+ 63%|██████▎   | 38/60 [10:30<07:22, 20.11s/it] 65%|██████▌   | 39/60 [10:43<06:19, 18.07s/it] 67%|██████▋   | 40/60 [10:56<05:32, 16.62s/it] 68%|██████▊   | 41/60 [11:09<04:53, 15.43s/it] 70%|███████   | 42/60 [11:22<04:23, 14.63s/it] 72%|███████▏  | 43/60 [11:34<03:57, 13.98s/it]The following columns in the evaluation set don't have a corresponding argument in `Wav2Vec2ForCTC.forward` and have been ignored: length. If length are not expected by `Wav2Vec2ForCTC.forward`,  you can safely ignore this message.
+***** Running Evaluation *****
+  Num examples = 262
+  Batch size = 8
+/usr/local/lib/python3.10/dist-packages/transformers/models/wav2vec2/processing_wav2vec2.py:156: UserWarning: `as_target_processor` is deprecated and will be removed in v5 of Transformers. You can process your labels by using the argument `text` of the regular `__call__` method (either in the same call as your audio inputs, or in a separate call.
+  warnings.warn(
+/usr/local/lib/python3.10/dist-packages/transformers/models/wav2vec2/processing_wav2vec2.py:156: UserWarning: `as_target_processor` is deprecated and will be removed in v5 of Transformers. You can process your labels by using the argument `text` of the regular `__call__` method (either in the same call as your audio inputs, or in a separate call.
+  warnings.warn(
+/usr/local/lib/python3.10/dist-packages/transformers/models/wav2vec2/processing_wav2vec2.py:156: UserWarning: `as_target_processor` is deprecated and will be removed in v5 of Transformers. You can process your labels by using the argument `text` of the regular `__call__` method (either in the same call as your audio inputs, or in a separate call.
+  warnings.warn(
+/usr/local/lib/python3.10/dist-packages/transformers/models/wav2vec2/processing_wav2vec2.py:156: UserWarning: `as_target_processor` is deprecated and will be removed in v5 of Transformers. You can process your labels by using the argument `text` of the regular `__call__` method (either in the same call as your audio inputs, or in a separate call.
+  warnings.warn(
+/usr/local/lib/python3.10/dist-packages/transformers/models/wav2vec2/processing_wav2vec2.py:156: UserWarning: `as_target_processor` is deprecated and will be removed in v5 of Transformers. You can process your labels by using the argument `text` of the regular `__call__` method (either in the same call as your audio inputs, or in a separate call.
+  warnings.warn(
+/usr/local/lib/python3.10/dist-packages/transformers/models/wav2vec2/processing_wav2vec2.py:156: UserWarning: `as_target_processor` is deprecated and will be removed in v5 of Transformers. You can process your labels by using the argument `text` of the regular `__call__` method (either in the same call as your audio inputs, or in a separate call.
+  warnings.warn(
+/usr/local/lib/python3.10/dist-packages/transformers/models/wav2vec2/processing_wav2vec2.py:156: UserWarning: `as_target_processor` is deprecated and will be removed in v5 of Transformers. You can process your labels by using the argument `text` of the regular `__call__` method (either in the same call as your audio inputs, or in a separate call.
+  warnings.warn(
+/usr/local/lib/python3.10/dist-packages/transformers/models/wav2vec2/processing_wav2vec2.py:156: UserWarning: `as_target_processor` is deprecated and will be removed in v5 of Transformers. You can process your labels by using the argument `text` of the regular `__call__` method (either in the same call as your audio inputs, or in a separate call.
+  warnings.warn(
+
+  0%|          | 0/33 [00:00<?, ?it/s][A
+  6%|▌         | 2/33 [00:00<00:06,  4.89it/s][A
+  9%|▉         | 3/33 [00:00<00:10,  2.78it/s][A
+ 12%|█▏        | 4/33 [00:01<00:13,  2.13it/s][A
+ 15%|█▌        | 5/33 [00:02<00:13,  2.12it/s][A
+ 18%|█▊        | 6/33 [00:02<00:11,  2.26it/s][A
+ 21%|██        | 7/33 [00:03<00:16,  1.59it/s][A
+ 24%|██▍       | 8/33 [00:03<00:14,  1.74it/s][A
+ 27%|██▋       | 9/33 [00:04<00:15,  1.54it/s][A
+ 30%|███       | 10/33 [00:05<00:15,  1.47it/s][A
+ 33%|███▎      | 11/33 [00:06<00:14,  1.48it/s][A
+ 36%|███▋      | 12/33 [00:06<00:13,  1.58it/s][A
+ 39%|███▉      | 13/33 [00:07<00:11,  1.75it/s][A
+ 42%|████▏     | 14/33 [00:07<00:10,  1.88it/s][A
+ 45%|████▌     | 15/33 [00:08<00:09,  1.85it/s][A
+ 48%|████▊     | 16/33 [00:08<00:08,  2.12it/s][A
+ 52%|█████▏    | 17/33 [00:08<00:06,  2.44it/s][A
+ 55%|█████▍    | 18/33 [00:09<00:06,  2.40it/s][A
+ 58%|█████▊    | 19/33 [00:09<00:05,  2.34it/s][A
+ 61%|██████    | 20/33 [00:09<00:05,  2.56it/s][A
+ 64%|██████▎   | 21/33 [00:10<00:04,  2.52it/s][A
+ 67%|██████▋   | 22/33 [00:10<00:03,  3.05it/s][A
+ 70%|██████▉   | 23/33 [00:10<00:02,  3.41it/s][A
+ 73%|███████▎  | 24/33 [00:11<00:02,  3.10it/s][A
+ 76%|███████▌  | 25/33 [00:11<00:03,  2.13it/s][A
+ 79%|███████▉  | 26/33 [00:12<00:03,  1.90it/s][A
+ 82%|████████▏ | 27/33 [00:12<00:02,  2.20it/s][A
+ 85%|████████▍ | 28/33 [00:13<00:02,  2.23it/s][A
+ 88%|████████▊ | 29/33 [00:13<00:01,  2.34it/s][A
+ 91%|█████████ | 30/33 [00:14<00:01,  2.33it/s][A
+ 94%|█████████▍| 31/33 [00:14<00:00,  2.48it/s][A
+ 97%|█████████▋| 32/33 [00:15<00:00,  2.06it/s][A
+100%|██████████| 33/33 [00:15<00:00,  2.20it/s][A                                               
+                                               [A 72%|███████▏  | 43/60 [11:53<03:57, 13.98s/it]
+100%|██████████| 33/33 [00:15<00:00,  2.20it/s][A
+                                               [ASaving model checkpoint to ../checkpoints/Wav2Vec/NURC-SP/final-version/train/checkpoint-43
+Configuration saved in ../checkpoints/Wav2Vec/NURC-SP/final-version/train/checkpoint-43/config.json
+Model weights saved in ../checkpoints/Wav2Vec/NURC-SP/final-version/train/checkpoint-43/model.safetensors
+Feature extractor saved in ../checkpoints/Wav2Vec/NURC-SP/final-version/train/checkpoint-43/preprocessor_config.json
+Deleting older checkpoint [../checkpoints/Wav2Vec/NURC-SP/final-version/train/checkpoint-24] due to args.save_total_limit
+{'eval_loss': 7.3217339515686035, 'eval_wer': 1.0, 'eval_runtime': 16.7054, 'eval_samples_per_second': 15.684, 'eval_steps_per_second': 1.975, 'epoch': 6.97}
+/usr/local/lib/python3.10/dist-packages/transformers/models/wav2vec2/processing_wav2vec2.py:156: UserWarning: `as_target_processor` is deprecated and will be removed in v5 of Transformers. You can process your labels by using the argument `text` of the regular `__call__` method (either in the same call as your audio inputs, or in a separate call.
+  warnings.warn(
+/usr/local/lib/python3.10/dist-packages/transformers/models/wav2vec2/processing_wav2vec2.py:156: UserWarning: `as_target_processor` is deprecated and will be removed in v5 of Transformers. You can process your labels by using the argument `text` of the regular `__call__` method (either in the same call as your audio inputs, or in a separate call.
+  warnings.warn(
+/usr/local/lib/python3.10/dist-packages/transformers/models/wav2vec2/processing_wav2vec2.py:156: UserWarning: `as_target_processor` is deprecated and will be removed in v5 of Transformers. You can process your labels by using the argument `text` of the regular `__call__` method (either in the same call as your audio inputs, or in a separate call.
+  warnings.warn(
+/usr/local/lib/python3.10/dist-packages/transformers/models/wav2vec2/processing_wav2vec2.py:156: UserWarning: `as_target_processor` is deprecated and will be removed in v5 of Transformers. You can process your labels by using the argument `text` of the regular `__call__` method (either in the same call as your audio inputs, or in a separate call.
+  warnings.warn(
+/usr/local/lib/python3.10/dist-packages/transformers/models/wav2vec2/processing_wav2vec2.py:156: UserWarning: `as_target_processor` is deprecated and will be removed in v5 of Transformers. You can process your labels by using the argument `text` of the regular `__call__` method (either in the same call as your audio inputs, or in a separate call.
+  warnings.warn(
+/usr/local/lib/python3.10/dist-packages/transformers/models/wav2vec2/processing_wav2vec2.py:156: UserWarning: `as_target_processor` is deprecated and will be removed in v5 of Transformers. You can process your labels by using the argument `text` of the regular `__call__` method (either in the same call as your audio inputs, or in a separate call.
+  warnings.warn(
+/usr/local/lib/python3.10/dist-packages/transformers/models/wav2vec2/processing_wav2vec2.py:156: UserWarning: `as_target_processor` is deprecated and will be removed in v5 of Transformers. You can process your labels by using the argument `text` of the regular `__call__` method (either in the same call as your audio inputs, or in a separate call.
+  warnings.warn(
+/usr/local/lib/python3.10/dist-packages/transformers/models/wav2vec2/processing_wav2vec2.py:156: UserWarning: `as_target_processor` is deprecated and will be removed in v5 of Transformers. You can process your labels by using the argument `text` of the regular `__call__` method (either in the same call as your audio inputs, or in a separate call.
+  warnings.warn(
+ 73%|███████▎  | 44/60 [12:09<05:25, 20.32s/it] 75%|███████▌  | 45/60 [12:23<04:33, 18.24s/it] 77%|███████▋  | 46/60 [12:37<03:57, 16.98s/it] 78%|███████▊  | 47/60 [12:50<03:26, 15.88s/it] 80%|████████  | 48/60 [13:04<03:01, 15.14s/it] 82%|████████▏ | 49/60 [13:17<02:40, 14.57s/it]The following columns in the evaluation set don't have a corresponding argument in `Wav2Vec2ForCTC.forward` and have been ignored: length. If length are not expected by `Wav2Vec2ForCTC.forward`,  you can safely ignore this message.
+***** Running Evaluation *****
+  Num examples = 262
+  Batch size = 8
+/usr/local/lib/python3.10/dist-packages/transformers/models/wav2vec2/processing_wav2vec2.py:156: UserWarning: `as_target_processor` is deprecated and will be removed in v5 of Transformers. You can process your labels by using the argument `text` of the regular `__call__` method (either in the same call as your audio inputs, or in a separate call.
+  warnings.warn(
+/usr/local/lib/python3.10/dist-packages/transformers/models/wav2vec2/processing_wav2vec2.py:156: UserWarning: `as_target_processor` is deprecated and will be removed in v5 of Transformers. You can process your labels by using the argument `text` of the regular `__call__` method (either in the same call as your audio inputs, or in a separate call.
+  warnings.warn(
+/usr/local/lib/python3.10/dist-packages/transformers/models/wav2vec2/processing_wav2vec2.py:156: UserWarning: `as_target_processor` is deprecated and will be removed in v5 of Transformers. You can process your labels by using the argument `text` of the regular `__call__` method (either in the same call as your audio inputs, or in a separate call.
+  warnings.warn(
+/usr/local/lib/python3.10/dist-packages/transformers/models/wav2vec2/processing_wav2vec2.py:156: UserWarning: `as_target_processor` is deprecated and will be removed in v5 of Transformers. You can process your labels by using the argument `text` of the regular `__call__` method (either in the same call as your audio inputs, or in a separate call.
+  warnings.warn(
+/usr/local/lib/python3.10/dist-packages/transformers/models/wav2vec2/processing_wav2vec2.py:156: UserWarning: `as_target_processor` is deprecated and will be removed in v5 of Transformers. You can process your labels by using the argument `text` of the regular `__call__` method (either in the same call as your audio inputs, or in a separate call.
+  warnings.warn(
+/usr/local/lib/python3.10/dist-packages/transformers/models/wav2vec2/processing_wav2vec2.py:156: UserWarning: `as_target_processor` is deprecated and will be removed in v5 of Transformers. You can process your labels by using the argument `text` of the regular `__call__` method (either in the same call as your audio inputs, or in a separate call.
+  warnings.warn(
+/usr/local/lib/python3.10/dist-packages/transformers/models/wav2vec2/processing_wav2vec2.py:156: UserWarning: `as_target_processor` is deprecated and will be removed in v5 of Transformers. You can process your labels by using the argument `text` of the regular `__call__` method (either in the same call as your audio inputs, or in a separate call.
+  warnings.warn(
+/usr/local/lib/python3.10/dist-packages/transformers/models/wav2vec2/processing_wav2vec2.py:156: UserWarning: `as_target_processor` is deprecated and will be removed in v5 of Transformers. You can process your labels by using the argument `text` of the regular `__call__` method (either in the same call as your audio inputs, or in a separate call.
+  warnings.warn(
+
+  0%|          | 0/33 [00:00<?, ?it/s][A
+  6%|▌         | 2/33 [00:00<00:06,  4.84it/s][A
+  9%|▉         | 3/33 [00:00<00:10,  2.80it/s][A
+ 12%|█▏        | 4/33 [00:01<00:13,  2.13it/s][A
+ 15%|█▌        | 5/33 [00:02<00:13,  2.12it/s][A
+ 18%|█▊        | 6/33 [00:02<00:11,  2.25it/s][A
+ 21%|██        | 7/33 [00:03<00:16,  1.59it/s][A
+ 24%|██▍       | 8/33 [00:03<00:14,  1.73it/s][A
+ 27%|██▋       | 9/33 [00:04<00:15,  1.54it/s][A
+ 30%|███       | 10/33 [00:05<00:15,  1.47it/s][A
+ 33%|███▎      | 11/33 [00:06<00:14,  1.48it/s][A
+ 36%|███▋      | 12/33 [00:06<00:13,  1.58it/s][A
+ 39%|███▉      | 13/33 [00:07<00:11,  1.69it/s][A
+ 42%|████▏     | 14/33 [00:07<00:10,  1.83it/s][A
+ 45%|████▌     | 15/33 [00:08<00:09,  1.81it/s][A
+ 48%|████▊     | 16/33 [00:08<00:08,  2.00it/s][A
+ 52%|█████▏    | 17/33 [00:08<00:07,  2.23it/s][A
+ 55%|█████▍    | 18/33 [00:09<00:07,  2.12it/s][A
+ 58%|█████▊    | 19/33 [00:10<00:06,  2.03it/s][A
+ 61%|██████    | 20/33 [00:10<00:05,  2.20it/s][A
+ 64%|██████▎   | 21/33 [00:10<00:05,  2.04it/s][A
+ 67%|██████▋   | 22/33 [00:11<00:04,  2.38it/s][A
+ 70%|██████▉   | 23/33 [00:11<00:03,  2.58it/s][A
+ 73%|███████▎  | 24/33 [00:11<00:03,  2.54it/s][A
+ 76%|███████▌  | 25/33 [00:12<00:04,  1.92it/s][A
+ 79%|███████▉  | 26/33 [00:13<00:03,  1.78it/s][A
+ 82%|████████▏ | 27/33 [00:13<00:02,  2.09it/s][A
+ 85%|████████▍ | 28/33 [00:14<00:02,  2.15it/s][A
+ 88%|████████▊ | 29/33 [00:14<00:01,  2.27it/s][A
+ 91%|█████████ | 30/33 [00:14<00:01,  2.29it/s][A
+ 94%|█████████▍| 31/33 [00:15<00:00,  2.44it/s][A
+ 97%|█████████▋| 32/33 [00:15<00:00,  2.04it/s][A
+100%|██████████| 33/33 [00:16<00:00,  2.20it/s][A                                               
+                                               [A 82%|████████▏ | 49/60 [13:38<02:40, 14.57s/it]
+100%|██████████| 33/33 [00:16<00:00,  2.20it/s][A
+                                               [ASaving model checkpoint to ../checkpoints/Wav2Vec/NURC-SP/final-version/train/checkpoint-49
+Configuration saved in ../checkpoints/Wav2Vec/NURC-SP/final-version/train/checkpoint-49/config.json
+Model weights saved in ../checkpoints/Wav2Vec/NURC-SP/final-version/train/checkpoint-49/model.safetensors
+Feature extractor saved in ../checkpoints/Wav2Vec/NURC-SP/final-version/train/checkpoint-49/preprocessor_config.json
+Deleting older checkpoint [../checkpoints/Wav2Vec/NURC-SP/final-version/train/checkpoint-30] due to args.save_total_limit
+{'eval_loss': 6.920580863952637, 'eval_wer': 1.0, 'eval_runtime': 17.5221, 'eval_samples_per_second': 14.953, 'eval_steps_per_second': 1.883, 'epoch': 7.95}
+/usr/local/lib/python3.10/dist-packages/transformers/models/wav2vec2/processing_wav2vec2.py:156: UserWarning: `as_target_processor` is deprecated and will be removed in v5 of Transformers. You can process your labels by using the argument `text` of the regular `__call__` method (either in the same call as your audio inputs, or in a separate call.
+  warnings.warn(
+/usr/local/lib/python3.10/dist-packages/transformers/models/wav2vec2/processing_wav2vec2.py:156: UserWarning: `as_target_processor` is deprecated and will be removed in v5 of Transformers. You can process your labels by using the argument `text` of the regular `__call__` method (either in the same call as your audio inputs, or in a separate call.
+  warnings.warn(
+/usr/local/lib/python3.10/dist-packages/transformers/models/wav2vec2/processing_wav2vec2.py:156: UserWarning: `as_target_processor` is deprecated and will be removed in v5 of Transformers. You can process your labels by using the argument `text` of the regular `__call__` method (either in the same call as your audio inputs, or in a separate call.
+  warnings.warn(
+/usr/local/lib/python3.10/dist-packages/transformers/models/wav2vec2/processing_wav2vec2.py:156: UserWarning: `as_target_processor` is deprecated and will be removed in v5 of Transformers. You can process your labels by using the argument `text` of the regular `__call__` method (either in the same call as your audio inputs, or in a separate call.
+  warnings.warn(
+/usr/local/lib/python3.10/dist-packages/transformers/models/wav2vec2/processing_wav2vec2.py:156: UserWarning: `as_target_processor` is deprecated and will be removed in v5 of Transformers. You can process your labels by using the argument `text` of the regular `__call__` method (either in the same call as your audio inputs, or in a separate call.
+  warnings.warn(
+/usr/local/lib/python3.10/dist-packages/transformers/models/wav2vec2/processing_wav2vec2.py:156: UserWarning: `as_target_processor` is deprecated and will be removed in v5 of Transformers. You can process your labels by using the argument `text` of the regular `__call__` method (either in the same call as your audio inputs, or in a separate call.
+  warnings.warn(
+/usr/local/lib/python3.10/dist-packages/transformers/models/wav2vec2/processing_wav2vec2.py:156: UserWarning: `as_target_processor` is deprecated and will be removed in v5 of Transformers. You can process your labels by using the argument `text` of the regular `__call__` method (either in the same call as your audio inputs, or in a separate call.
+  warnings.warn(
+/usr/local/lib/python3.10/dist-packages/transformers/models/wav2vec2/processing_wav2vec2.py:156: UserWarning: `as_target_processor` is deprecated and will be removed in v5 of Transformers. You can process your labels by using the argument `text` of the regular `__call__` method (either in the same call as your audio inputs, or in a separate call.
+  warnings.warn(
+ 83%|████████▎ | 50/60 [13:54<03:34, 21.43s/it] 85%|████████▌ | 51/60 [14:06<02:47, 18.65s/it] 87%|████████▋ | 52/60 [14:20<02:17, 17.21s/it] 88%|████████▊ | 53/60 [14:33<01:50, 15.82s/it] 90%|█████████ | 54/60 [14:45<01:28, 14.79s/it] 92%|█████████▏| 55/60 [14:59<01:12, 14.41s/it]The following columns in the evaluation set don't have a corresponding argument in `Wav2Vec2ForCTC.forward` and have been ignored: length. If length are not expected by `Wav2Vec2ForCTC.forward`,  you can safely ignore this message.
+***** Running Evaluation *****
+  Num examples = 262
+  Batch size = 8
+/usr/local/lib/python3.10/dist-packages/transformers/models/wav2vec2/processing_wav2vec2.py:156: UserWarning: `as_target_processor` is deprecated and will be removed in v5 of Transformers. You can process your labels by using the argument `text` of the regular `__call__` method (either in the same call as your audio inputs, or in a separate call.
+  warnings.warn(
+/usr/local/lib/python3.10/dist-packages/transformers/models/wav2vec2/processing_wav2vec2.py:156: UserWarning: `as_target_processor` is deprecated and will be removed in v5 of Transformers. You can process your labels by using the argument `text` of the regular `__call__` method (either in the same call as your audio inputs, or in a separate call.
+  warnings.warn(
+/usr/local/lib/python3.10/dist-packages/transformers/models/wav2vec2/processing_wav2vec2.py:156: UserWarning: `as_target_processor` is deprecated and will be removed in v5 of Transformers. You can process your labels by using the argument `text` of the regular `__call__` method (either in the same call as your audio inputs, or in a separate call.
+  warnings.warn(
+/usr/local/lib/python3.10/dist-packages/transformers/models/wav2vec2/processing_wav2vec2.py:156: UserWarning: `as_target_processor` is deprecated and will be removed in v5 of Transformers. You can process your labels by using the argument `text` of the regular `__call__` method (either in the same call as your audio inputs, or in a separate call.
+  warnings.warn(
+/usr/local/lib/python3.10/dist-packages/transformers/models/wav2vec2/processing_wav2vec2.py:156: UserWarning: `as_target_processor` is deprecated and will be removed in v5 of Transformers. You can process your labels by using the argument `text` of the regular `__call__` method (either in the same call as your audio inputs, or in a separate call.
+  warnings.warn(
+/usr/local/lib/python3.10/dist-packages/transformers/models/wav2vec2/processing_wav2vec2.py:156: UserWarning: `as_target_processor` is deprecated and will be removed in v5 of Transformers. You can process your labels by using the argument `text` of the regular `__call__` method (either in the same call as your audio inputs, or in a separate call.
+  warnings.warn(
+/usr/local/lib/python3.10/dist-packages/transformers/models/wav2vec2/processing_wav2vec2.py:156: UserWarning: `as_target_processor` is deprecated and will be removed in v5 of Transformers. You can process your labels by using the argument `text` of the regular `__call__` method (either in the same call as your audio inputs, or in a separate call.
+  warnings.warn(
+/usr/local/lib/python3.10/dist-packages/transformers/models/wav2vec2/processing_wav2vec2.py:156: UserWarning: `as_target_processor` is deprecated and will be removed in v5 of Transformers. You can process your labels by using the argument `text` of the regular `__call__` method (either in the same call as your audio inputs, or in a separate call.
+  warnings.warn(
+
+  0%|          | 0/33 [00:00<?, ?it/s][A
+  6%|▌         | 2/33 [00:00<00:06,  4.85it/s][A
+  9%|▉         | 3/33 [00:00<00:10,  2.80it/s][A
+ 12%|█▏        | 4/33 [00:01<00:13,  2.14it/s][A
+ 15%|█▌        | 5/33 [00:02<00:13,  2.13it/s][A
+ 18%|█▊        | 6/33 [00:02<00:11,  2.26it/s][A
+ 21%|██        | 7/33 [00:03<00:16,  1.59it/s][A
+ 24%|██▍       | 8/33 [00:03<00:14,  1.74it/s][A
+ 27%|██▋       | 9/33 [00:04<00:15,  1.55it/s][A
+ 30%|███       | 10/33 [00:05<00:15,  1.48it/s][A
+ 33%|███▎      | 11/33 [00:06<00:14,  1.48it/s][A
+ 36%|███▋      | 12/33 [00:06<00:13,  1.58it/s][A
+ 39%|███▉      | 13/33 [00:07<00:11,  1.68it/s][A
+ 42%|████▏     | 14/33 [00:07<00:10,  1.83it/s][A
+ 45%|████▌     | 15/33 [00:08<00:09,  1.89it/s][A
+ 48%|████▊     | 16/33 [00:08<00:07,  2.27it/s][A
+ 52%|█████▏    | 17/33 [00:08<00:05,  2.70it/s][A
+ 55%|█████▍    | 18/33 [00:08<00:05,  2.85it/s][A
+ 58%|█████▊    | 19/33 [00:09<00:04,  3.31it/s][A
+ 61%|██████    | 20/33 [00:09<00:03,  3.56it/s][A
+ 64%|██████▎   | 21/33 [00:09<00:03,  3.26it/s][A
+ 67%|██████▋   | 22/33 [00:09<00:02,  3.80it/s][A
+ 70%|██████▉   | 23/33 [00:10<00:02,  4.11it/s][A
+ 73%|███████▎  | 24/33 [00:10<00:02,  4.28it/s][A
+ 76%|███████▌  | 25/33 [00:10<00:02,  3.16it/s][A
+ 79%|███████▉  | 26/33 [00:11<00:02,  2.61it/s][A
+ 82%|████████▏ | 27/33 [00:11<00:02,  2.96it/s][A
+ 85%|████████▍ | 28/33 [00:11<00:01,  2.91it/s][A
+ 88%|████████▊ | 29/33 [00:12<00:01,  3.10it/s][A
+ 91%|█████████ | 30/33 [00:12<00:00,  3.20it/s][A
+ 94%|█████████▍| 31/33 [00:12<00:00,  3.45it/s][A
+ 97%|█████████▋| 32/33 [00:13<00:00,  2.49it/s][A
+100%|██████████| 33/33 [00:13<00:00,  2.55it/s][A                                               
+                                               [A 92%|█████████▏| 55/60 [15:20<01:12, 14.41s/it]
+100%|██████████| 33/33 [00:14<00:00,  2.55it/s][A
+                                               [ASaving model checkpoint to ../checkpoints/Wav2Vec/NURC-SP/final-version/train/checkpoint-55
+Configuration saved in ../checkpoints/Wav2Vec/NURC-SP/final-version/train/checkpoint-55/config.json
+Model weights saved in ../checkpoints/Wav2Vec/NURC-SP/final-version/train/checkpoint-55/model.safetensors
+Feature extractor saved in ../checkpoints/Wav2Vec/NURC-SP/final-version/train/checkpoint-55/preprocessor_config.json
+Deleting older checkpoint [../checkpoints/Wav2Vec/NURC-SP/final-version/train/checkpoint-37] due to args.save_total_limit
+{'eval_loss': 6.633846759796143, 'eval_wer': 1.0, 'eval_runtime': 14.9316, 'eval_samples_per_second': 17.547, 'eval_steps_per_second': 2.21, 'epoch': 8.92}
+/usr/local/lib/python3.10/dist-packages/transformers/models/wav2vec2/processing_wav2vec2.py:156: UserWarning: `as_target_processor` is deprecated and will be removed in v5 of Transformers. You can process your labels by using the argument `text` of the regular `__call__` method (either in the same call as your audio inputs, or in a separate call.
+  warnings.warn(
+/usr/local/lib/python3.10/dist-packages/transformers/models/wav2vec2/processing_wav2vec2.py:156: UserWarning: `as_target_processor` is deprecated and will be removed in v5 of Transformers. You can process your labels by using the argument `text` of the regular `__call__` method (either in the same call as your audio inputs, or in a separate call.
+  warnings.warn(
+/usr/local/lib/python3.10/dist-packages/transformers/models/wav2vec2/processing_wav2vec2.py:156: UserWarning: `as_target_processor` is deprecated and will be removed in v5 of Transformers. You can process your labels by using the argument `text` of the regular `__call__` method (either in the same call as your audio inputs, or in a separate call.
+  warnings.warn(
+/usr/local/lib/python3.10/dist-packages/transformers/models/wav2vec2/processing_wav2vec2.py:156: UserWarning: `as_target_processor` is deprecated and will be removed in v5 of Transformers. You can process your labels by using the argument `text` of the regular `__call__` method (either in the same call as your audio inputs, or in a separate call.
+  warnings.warn(
+/usr/local/lib/python3.10/dist-packages/transformers/models/wav2vec2/processing_wav2vec2.py:156: UserWarning: `as_target_processor` is deprecated and will be removed in v5 of Transformers. You can process your labels by using the argument `text` of the regular `__call__` method (either in the same call as your audio inputs, or in a separate call.
+  warnings.warn(
+/usr/local/lib/python3.10/dist-packages/transformers/models/wav2vec2/processing_wav2vec2.py:156: UserWarning: `as_target_processor` is deprecated and will be removed in v5 of Transformers. You can process your labels by using the argument `text` of the regular `__call__` method (either in the same call as your audio inputs, or in a separate call.
+  warnings.warn(
+/usr/local/lib/python3.10/dist-packages/transformers/models/wav2vec2/processing_wav2vec2.py:156: UserWarning: `as_target_processor` is deprecated and will be removed in v5 of Transformers. You can process your labels by using the argument `text` of the regular `__call__` method (either in the same call as your audio inputs, or in a separate call.
+  warnings.warn(
+/usr/local/lib/python3.10/dist-packages/transformers/models/wav2vec2/processing_wav2vec2.py:156: UserWarning: `as_target_processor` is deprecated and will be removed in v5 of Transformers. You can process your labels by using the argument `text` of the regular `__call__` method (either in the same call as your audio inputs, or in a separate call.
+  warnings.warn(
+ 93%|█████████▎| 56/60 [15:34<01:23, 20.77s/it] 95%|█████████▌| 57/60 [15:46<00:54, 18.13s/it] 97%|█████████▋| 58/60 [15:59<00:32, 16.39s/it] 98%|█████████▊| 59/60 [16:14<00:16, 16.04s/it]100%|██████████| 60/60 [16:26<00:00, 14.99s/it]The following columns in the evaluation set don't have a corresponding argument in `Wav2Vec2ForCTC.forward` and have been ignored: length. If length are not expected by `Wav2Vec2ForCTC.forward`,  you can safely ignore this message.
+***** Running Evaluation *****
+  Num examples = 262
+  Batch size = 8
+/usr/local/lib/python3.10/dist-packages/transformers/models/wav2vec2/processing_wav2vec2.py:156: UserWarning: `as_target_processor` is deprecated and will be removed in v5 of Transformers. You can process your labels by using the argument `text` of the regular `__call__` method (either in the same call as your audio inputs, or in a separate call.
+  warnings.warn(
+/usr/local/lib/python3.10/dist-packages/transformers/models/wav2vec2/processing_wav2vec2.py:156: UserWarning: `as_target_processor` is deprecated and will be removed in v5 of Transformers. You can process your labels by using the argument `text` of the regular `__call__` method (either in the same call as your audio inputs, or in a separate call.
+  warnings.warn(
+/usr/local/lib/python3.10/dist-packages/transformers/models/wav2vec2/processing_wav2vec2.py:156: UserWarning: `as_target_processor` is deprecated and will be removed in v5 of Transformers. You can process your labels by using the argument `text` of the regular `__call__` method (either in the same call as your audio inputs, or in a separate call.
+  warnings.warn(
+/usr/local/lib/python3.10/dist-packages/transformers/models/wav2vec2/processing_wav2vec2.py:156: UserWarning: `as_target_processor` is deprecated and will be removed in v5 of Transformers. You can process your labels by using the argument `text` of the regular `__call__` method (either in the same call as your audio inputs, or in a separate call.
+  warnings.warn(
+/usr/local/lib/python3.10/dist-packages/transformers/models/wav2vec2/processing_wav2vec2.py:156: UserWarning: `as_target_processor` is deprecated and will be removed in v5 of Transformers. You can process your labels by using the argument `text` of the regular `__call__` method (either in the same call as your audio inputs, or in a separate call.
+  warnings.warn(
+/usr/local/lib/python3.10/dist-packages/transformers/models/wav2vec2/processing_wav2vec2.py:156: UserWarning: `as_target_processor` is deprecated and will be removed in v5 of Transformers. You can process your labels by using the argument `text` of the regular `__call__` method (either in the same call as your audio inputs, or in a separate call.
+  warnings.warn(
+/usr/local/lib/python3.10/dist-packages/transformers/models/wav2vec2/processing_wav2vec2.py:156: UserWarning: `as_target_processor` is deprecated and will be removed in v5 of Transformers. You can process your labels by using the argument `text` of the regular `__call__` method (either in the same call as your audio inputs, or in a separate call.
+  warnings.warn(
+/usr/local/lib/python3.10/dist-packages/transformers/models/wav2vec2/processing_wav2vec2.py:156: UserWarning: `as_target_processor` is deprecated and will be removed in v5 of Transformers. You can process your labels by using the argument `text` of the regular `__call__` method (either in the same call as your audio inputs, or in a separate call.
+  warnings.warn(
+
+  0%|          | 0/33 [00:00<?, ?it/s][A
+  6%|▌         | 2/33 [00:00<00:05,  6.00it/s][A
+  9%|▉         | 3/33 [00:00<00:08,  3.75it/s][A
+ 12%|█▏        | 4/33 [00:01<00:09,  2.92it/s][A
+ 15%|█▌        | 5/33 [00:01<00:10,  2.57it/s][A
+ 18%|█▊        | 6/33 [00:02<00:10,  2.57it/s][A
+ 21%|██        | 7/33 [00:03<00:15,  1.69it/s][A
+ 24%|██▍       | 8/33 [00:03<00:13,  1.81it/s][A
+ 27%|██▋       | 9/33 [00:04<00:15,  1.59it/s][A
+ 30%|███       | 10/33 [00:05<00:15,  1.50it/s][A
+ 33%|███▎      | 11/33 [00:05<00:14,  1.50it/s][A
+ 36%|███▋      | 12/33 [00:06<00:13,  1.59it/s][A
+ 39%|███▉      | 13/33 [00:06<00:11,  1.74it/s][A
+ 42%|████▏     | 14/33 [00:07<00:10,  1.87it/s][A
+ 45%|████▌     | 15/33 [00:07<00:09,  1.84it/s][A
+ 48%|████▊     | 16/33 [00:08<00:08,  2.03it/s][A
+ 52%|█████▏    | 17/33 [00:08<00:07,  2.26it/s][A
+ 55%|█████▍    | 18/33 [00:09<00:07,  2.13it/s][A
+ 58%|█████▊    | 19/33 [00:09<00:06,  2.04it/s][A
+ 61%|██████    | 20/33 [00:09<00:05,  2.20it/s][A
+ 64%|██████▎   | 21/33 [00:10<00:05,  2.04it/s][A
+ 67%|██████▋   | 22/33 [00:10<00:04,  2.39it/s][A
+ 70%|██████▉   | 23/33 [00:11<00:03,  2.59it/s][A
+ 73%|███████▎  | 24/33 [00:11<00:03,  2.55it/s][A
+ 76%|███████▌  | 25/33 [00:12<00:04,  1.92it/s][A
+ 79%|███████▉  | 26/33 [00:12<00:03,  1.78it/s][A
+ 82%|████████▏ | 27/33 [00:13<00:02,  2.09it/s][A
+ 85%|████████▍ | 28/33 [00:13<00:02,  2.15it/s][A
+ 88%|████████▊ | 29/33 [00:14<00:01,  2.27it/s][A
+ 91%|█████████ | 30/33 [00:14<00:01,  2.29it/s][A
+ 94%|█████████▍| 31/33 [00:14<00:00,  2.44it/s][A
+ 97%|█████████▋| 32/33 [00:15<00:00,  2.04it/s][A
+100%|██████████| 33/33 [00:15<00:00,  2.18it/s][A                                               
+                                               [A100%|██████████| 60/60 [16:44<00:00, 14.99s/it]
+100%|██████████| 33/33 [00:16<00:00,  2.18it/s][A
+                                               [ASaving model checkpoint to ../checkpoints/Wav2Vec/NURC-SP/final-version/train/checkpoint-60
+Configuration saved in ../checkpoints/Wav2Vec/NURC-SP/final-version/train/checkpoint-60/config.json
+Model weights saved in ../checkpoints/Wav2Vec/NURC-SP/final-version/train/checkpoint-60/model.safetensors
+Feature extractor saved in ../checkpoints/Wav2Vec/NURC-SP/final-version/train/checkpoint-60/preprocessor_config.json
+Deleting older checkpoint [../checkpoints/Wav2Vec/NURC-SP/final-version/train/checkpoint-43] due to args.save_total_limit
+
+
+Training completed. Do not forget to share your model on huggingface.co/models =)
+
+
+Loading best model from ../checkpoints/Wav2Vec/NURC-SP/final-version/train/checkpoint-60 (score: 6.517154216766357).
+                                               100%|██████████| 60/60 [16:49<00:00, 14.99s/it]100%|██████████| 60/60 [16:49<00:00, 16.83s/it]
+Saving model checkpoint to ../checkpoints/Wav2Vec/NURC-SP/final-version/train/
+Configuration saved in ../checkpoints/Wav2Vec/NURC-SP/final-version/train/config.json
+Model weights saved in ../checkpoints/Wav2Vec/NURC-SP/final-version/train/model.safetensors
+Feature extractor saved in ../checkpoints/Wav2Vec/NURC-SP/final-version/train/preprocessor_config.json
+The following columns in the evaluation set don't have a corresponding argument in `Wav2Vec2ForCTC.forward` and have been ignored: length. If length are not expected by `Wav2Vec2ForCTC.forward`,  you can safely ignore this message.
+***** Running Evaluation *****
+  Num examples = 262
+  Batch size = 8
+{'eval_loss': 6.517154216766357, 'eval_wer': 1.0, 'eval_runtime': 17.0142, 'eval_samples_per_second': 15.399, 'eval_steps_per_second': 1.94, 'epoch': 9.73}
+{'train_runtime': 1009.8213, 'train_samples_per_second': 11.675, 'train_steps_per_second': 0.059, 'train_loss': 10.376143725713094, 'epoch': 9.73}
+***** train metrics *****
+  epoch                    =       9.73
+  train_loss               =    10.3761
+  train_runtime            = 0:16:49.82
+  train_samples            =       1179
+  train_samples_per_second =     11.675
+  train_steps_per_second   =      0.059
+--- Evaluate ---
+/usr/local/lib/python3.10/dist-packages/transformers/models/wav2vec2/processing_wav2vec2.py:156: UserWarning: `as_target_processor` is deprecated and will be removed in v5 of Transformers. You can process your labels by using the argument `text` of the regular `__call__` method (either in the same call as your audio inputs, or in a separate call.
+  warnings.warn(
+/usr/local/lib/python3.10/dist-packages/transformers/models/wav2vec2/processing_wav2vec2.py:156: UserWarning: `as_target_processor` is deprecated and will be removed in v5 of Transformers. You can process your labels by using the argument `text` of the regular `__call__` method (either in the same call as your audio inputs, or in a separate call.
+  warnings.warn(
+/usr/local/lib/python3.10/dist-packages/transformers/models/wav2vec2/processing_wav2vec2.py:156: UserWarning: `as_target_processor` is deprecated and will be removed in v5 of Transformers. You can process your labels by using the argument `text` of the regular `__call__` method (either in the same call as your audio inputs, or in a separate call.
+  warnings.warn(
+/usr/local/lib/python3.10/dist-packages/transformers/models/wav2vec2/processing_wav2vec2.py:156: UserWarning: `as_target_processor` is deprecated and will be removed in v5 of Transformers. You can process your labels by using the argument `text` of the regular `__call__` method (either in the same call as your audio inputs, or in a separate call.
+  warnings.warn(
+/usr/local/lib/python3.10/dist-packages/transformers/models/wav2vec2/processing_wav2vec2.py:156: UserWarning: `as_target_processor` is deprecated and will be removed in v5 of Transformers. You can process your labels by using the argument `text` of the regular `__call__` method (either in the same call as your audio inputs, or in a separate call.
+  warnings.warn(
+/usr/local/lib/python3.10/dist-packages/transformers/models/wav2vec2/processing_wav2vec2.py:156: UserWarning: `as_target_processor` is deprecated and will be removed in v5 of Transformers. You can process your labels by using the argument `text` of the regular `__call__` method (either in the same call as your audio inputs, or in a separate call.
+  warnings.warn(
+/usr/local/lib/python3.10/dist-packages/transformers/models/wav2vec2/processing_wav2vec2.py:156: UserWarning: `as_target_processor` is deprecated and will be removed in v5 of Transformers. You can process your labels by using the argument `text` of the regular `__call__` method (either in the same call as your audio inputs, or in a separate call.
+  warnings.warn(
+/usr/local/lib/python3.10/dist-packages/transformers/models/wav2vec2/processing_wav2vec2.py:156: UserWarning: `as_target_processor` is deprecated and will be removed in v5 of Transformers. You can process your labels by using the argument `text` of the regular `__call__` method (either in the same call as your audio inputs, or in a separate call.
+  warnings.warn(
+  0%|          | 0/33 [00:00<?, ?it/s]  6%|▌         | 2/33 [00:00<00:06,  4.49it/s]  9%|▉         | 3/33 [00:01<00:10,  2.73it/s] 12%|█▏        | 4/33 [00:01<00:13,  2.11it/s] 15%|█▌        | 5/33 [00:02<00:13,  2.11it/s] 18%|█▊        | 6/33 [00:02<00:12,  2.24it/s] 21%|██        | 7/33 [00:03<00:16,  1.58it/s] 24%|██▍       | 8/33 [00:04<00:14,  1.73it/s] 27%|██▋       | 9/33 [00:04<00:15,  1.54it/s] 30%|███       | 10/33 [00:05<00:15,  1.47it/s] 33%|███▎      | 11/33 [00:06<00:14,  1.48it/s] 36%|███▋      | 12/33 [00:06<00:12,  1.71it/s] 39%|███▉      | 13/33 [00:06<00:10,  1.98it/s] 42%|████▏     | 14/33 [00:07<00:08,  2.29it/s] 45%|████▌     | 15/33 [00:07<00:08,  2.12it/s] 48%|████▊     | 16/33 [00:08<00:07,  2.27it/s] 52%|█████▏    | 17/33 [00:08<00:06,  2.46it/s] 55%|█████▍    | 18/33 [00:08<00:06,  2.27it/s] 58%|█████▊    | 19/33 [00:09<00:06,  2.13it/s] 61%|██████    | 20/33 [00:09<00:05,  2.29it/s] 64%|██████▎   | 21/33 [00:10<00:05,  2.10it/s] 67%|██████▋   | 22/33 [00:10<00:04,  2.44it/s] 70%|██████▉   | 23/33 [00:11<00:03,  2.64it/s] 73%|███████▎  | 24/33 [00:11<00:03,  2.59it/s] 76%|███████▌  | 25/33 [00:12<00:04,  1.95it/s] 79%|███████▉  | 26/33 [00:12<00:03,  1.86it/s] 82%|████████▏ | 27/33 [00:13<00:02,  2.16it/s] 85%|████████▍ | 28/33 [00:13<00:02,  2.22it/s] 88%|████████▊ | 29/33 [00:13<00:01,  2.33it/s] 91%|█████████ | 30/33 [00:14<00:01,  2.33it/s] 94%|█████████▍| 31/33 [00:14<00:00,  2.47it/s] 97%|█████████▋| 32/33 [00:15<00:00,  2.05it/s]100%|██████████| 33/33 [00:15<00:00,  2.20it/s]100%|██████████| 33/33 [00:16<00:00,  2.05it/s]
+***** eval metrics *****
+  epoch                   =       9.73
+  eval_loss               =     6.5172
+  eval_runtime            = 0:00:17.00
+  eval_samples            =        262
+  eval_samples_per_second =     15.405
+  eval_steps_per_second   =       1.94
+  eval_wer                =        1.0
+Done
