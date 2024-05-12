@@ -20,19 +20,19 @@ class SentencesToListOfCharacters(tr.AbstractTransform):
 
 cer_transform = tr.Compose(
     [
+        jiwer.ToLowerCase(),
         jiwer.RemoveMultipleSpaces(),
-        jiwer.Strip(), 
-        SentencesToListOfCharacters(), # convert words to chars
-        # jiwer.RemoveEmptyStrings()  # remove space strings
+        jiwer.Strip(),
+        jiwer.ReduceToListOfListOfChars(),
     ]
 )
 
 # It's the jiwer default transform
 wer_transform = jiwer.Compose([
+    jiwer.ToLowerCase(),
     jiwer.RemoveMultipleSpaces(),
     jiwer.Strip(),
     jiwer.ReduceToListOfListOfWords(),
-    jiwer.RemoveEmptyStrings()
 ])
 
 def compute_cer(reference, hypothesis):
@@ -72,6 +72,7 @@ def calculate_wer(pred_ids, labels, processor, vocab_string, debug=False):
         if reference.replace(" ", "") == "":
             print('Setence:"', label_string[i],'"ignored for the metrics calculate')
             continue
+
         wer += compute_wer(reference, hypothesis)
         cer += compute_cer(reference, hypothesis)
     if debug:

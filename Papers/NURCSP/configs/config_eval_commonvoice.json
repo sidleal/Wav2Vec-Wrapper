@@ -1,0 +1,27 @@
+{
+    "sampling_rate": 48000,
+    "num_loader_workers": 1,   
+
+    "datasets":{
+        "test":
+            {
+                "path": "mozilla-foundation/common_voice_13_0",
+                "name": "pt",
+                "split": "test",
+                "text_column": "sentence", 
+                "path_column": "path"
+            }       
+    },
+
+    "KenLM":{
+        "kenlm_model_path": "",
+        "lexicon_path": "../lexicon.lst",
+        "beam": 2048, 
+        "nbest": 1,
+        "beam_threshold": 25, 
+        "lm_weight": 1, 
+        "word_score": -1,
+        "sil_weight": 0
+    }
+}
+

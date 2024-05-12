@@ -178,7 +178,7 @@ def test(model, test_dataset, processor, kenlm, calcule_wer=True, return_predict
     tot_samples = 0
     tot_wer = 0
     tot_cer = 0
-    with torch.no_grad():
+    with torch.no_grad():     
         for batch in tqdm(test_dataset):
             input_values, attention_mask = batch['input_values'], batch['attention_mask']
             if calcule_wer:

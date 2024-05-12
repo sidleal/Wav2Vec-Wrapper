@@ -1,0 +1,28 @@
+{
+    "sampling_rate": 16000,
+    "num_loader_workers": 1,   
+
+    "datasets":{
+        "files_path": "d:/datasets/NURC-SP/", 
+        "test":
+            {
+                "name": "csv",
+                "path": "csv",
+                "data_files": ["d:/datasets/NURC-SP/audios_test_metadata.csv"], 
+                "text_column": "text",
+                "path_column": "file_path"
+            }
+    },
+
+    "KenLM":{
+        "kenlm_model_path": "",
+        "lexicon_path": "../lexicon.lst",
+        "beam": 2048, 
+        "nbest": 1,
+        "beam_threshold": 25, 
+        "lm_weight": 1, 
+        "word_score": -1,
+        "sil_weight": 0
+    }
+}
+

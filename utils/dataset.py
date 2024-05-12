@@ -201,8 +201,8 @@ class DataColletor:
 
                 if self.test:
                     audio_paths.append(feature['audio_path'])
-            except:
-                print("Error during load of audio:", feature["input_values"])
+            except Exception as error:
+                print("Error during load of audio:", feature["input_values"], error)
                 continue
 
         batch = self.processor.pad(
