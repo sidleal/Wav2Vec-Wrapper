@@ -27,15 +27,15 @@ python ../../test.py --output_csv d:/results/output_nurcsp2_nurcsp.csv --config_
 
 #----Commonvoice pt test *reported*
 #eval coraa model in commonvoice dataset
-python ../../test.py --output_csv d:/results/output_coraa_commonvoice.csv --config_path ./configs/config_eval_commonvoice.json --checkpoint_path_or_name d:/models/wav2vec2-large-xlsr-coraa-portuguese --no_kenlm
+python ../../test.py --output_csv d:/results/output_coraa_commonvoice.csv --config_path ./configs/config_eval_commonvoice_16khz.json --checkpoint_path_or_name d:/models/wav2vec2-large-xlsr-coraa-portuguese --no_kenlm
 
 #eval gris model in commonvoice dataset *reported*
-python ../../test.py --output_csv d:/results/output_gris_commonvoice.csv --config_path ./configs/config_eval_commonvoice.json --checkpoint_path_or_name d:/models/bp400-xlsr --no_kenlm
+python ../../test.py --output_csv d:/results/output_gris_commonvoice.csv --config_path ./configs/config_eval_commonvoice_16khz.json --checkpoint_path_or_name d:/models/bp400-xlsr --no_kenlm
 
 #eval nurc-sp-1 model in commonvoice dataset
-python ../../test.py --output_csv d:/results/output_nurcsp1_commonvoice.csv --config_path ./configs/config_eval_commonvoice.json --checkpoint_path_or_name d:/models/wav2vec2-large-xlsr-nurc-sp-1-portuguese --no_kenlm
+python ../../test.py --output_csv d:/results/output_nurcsp1_commonvoice.csv --config_path ./configs/config_eval_commonvoice_16khz.json --checkpoint_path_or_name d:/models/wav2vec2-large-xlsr-nurc-sp-1-portuguese --no_kenlm
 
 #eval nurc-sp-2 model in commonvoice dataset
-python ../../test.py --output_csv d:/results/output_nurcsp2_commonvoice.csv --config_path ./configs/config_eval_commonvoice.json --checkpoint_path_or_name d:/models/wav2vec2-large-xlsr-nurc-sp-2-portuguese --no_kenlm
+python ../../test.py --output_csv d:/results/output_nurcsp2_commonvoice.csv --config_path ./configs/config_eval_commonvoice_16khz.json --checkpoint_path_or_name d:/models/wav2vec2-large-xlsr-nurc-sp-2-portuguese --no_kenlm
 
 
