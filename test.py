@@ -63,8 +63,7 @@ def prepare_dataset(batch):
     batch['audio_path'] = batch[audio_path_column]
     batch["input_values"] = batch[audio_path_column]
     if text_column in batch:
-        with processor.as_target_processor():
-            batch["labels"] = processor(batch[text_column]).input_ids
+        batch["labels"] = processor(text=batch[text_column]).input_ids
 
     return batch
 
@@ -178,6 +177,9 @@ def test(model, test_dataset, processor, kenlm, calcule_wer=True, return_predict
     tot_samples = 0
     tot_wer = 0
     tot_cer = 0
+    with open("test-output.tsv", mode="w", encoding="utf-8") as f:
+        f.write("original\tprediction\toriginal normalized\tprediction normalized\twer\tcer\n")
+
     with torch.no_grad():     
         for batch in tqdm(test_dataset):
             input_values, attention_mask = batch['input_values'], batch['attention_mask']
@@ -189,7 +191,7 @@ def test(model, test_dataset, processor, kenlm, calcule_wer=True, return_predict
                 attention_mask = attention_mask.cuda(non_blocking=True)
                 if calcule_wer:
                     labels = labels.cuda(non_blocking=True)
-    
+
             logits = model(input_values, attention_mask=attention_mask).logits
 
             if kenlm:
@@ -282,6 +284,8 @@ if __name__ == '__main__':
     USE_CUDA = torch.cuda.is_available()
 
     model = Wav2Vec2ForCTC.from_pretrained(args.checkpoint_path_or_name)
+    if USE_CUDA:
+        model = model.cuda()
     print("> Model Loaded")
 
     feature_extractor = Wav2Vec2FeatureExtractor(feature_size=1, sampling_rate=config['sampling_rate'], padding_value=0.0, do_normalize=True, return_attention_mask=True)
@@ -297,9 +301,6 @@ if __name__ == '__main__':
     pad_token = processor.tokenizer.pad_token
     silence_token = processor.tokenizer.word_delimiter_token
     unk_token = processor.tokenizer.unk_token
-
-    if USE_CUDA:
-        model = model.cuda()
 
     if not args.no_kenlm:
         print("> Inference using KenLM")

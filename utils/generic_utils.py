@@ -47,7 +47,7 @@ def compute_wer(reference, hypothesis):
     wer = jiwer.wer(reference, hypothesis, truth_transform=wer_transform, hypothesis_transform=wer_transform) 
     return wer
 
-def replace_special_tokens_and_normalize(text, vocab_string, processor):
+def replace_special_tokens_and_normalize_v1(text, vocab_string, processor):
     text = text.lower()
     text = text.replace(processor.tokenizer.unk_token, " ")
     text = text.replace(processor.tokenizer.pad_token, " ")
@@ -58,6 +58,43 @@ def replace_special_tokens_and_normalize(text, vocab_string, processor):
     text = " ".join(text.split())
     return text
 
+alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZÇÃÀÁÂÊÉÍÓÔÕÚÛabcdefghijklmnopqrstuvwxyzçãàáâêéíóôõũúû1234567890%\-\n/\\ "
+
+def replace_special_tokens_and_normalize(text, vocab_string, processor):
+    text = text.lower()
+    
+    map_words = {
+        "éh": "eh",
+        "ehm": "eh",
+        "ehn": "eh",
+        "hum": "uh",
+        "hm": "uh",
+        "uhm": "uh",
+        "hã": "ah",
+        "ãh": "ah",
+        "ã":  "ah",
+        "hmm": "uh",
+        "mm": "uh",
+        "mhm": "uh",
+    }
+
+    text = re.sub("h+", "h", text)
+    text = re.sub("[^{}]".format(alphabet+" "), " ", text)
+    text = re.sub("[ ]+", " ", text)
+    
+    words = text.split(' ')
+    new_words = []
+    for word in words:
+        if word == '' or word == ' ':
+            continue
+        if word in map_words:
+            new_words.append(map_words[word])
+        else:
+            new_words.append(word)
+
+    return " ".join(new_words)
+
+
 def calculate_wer(pred_ids, labels, processor, vocab_string, debug=False):
     labels[labels == -100] = processor.tokenizer.pad_token_id
 
@@ -66,17 +103,24 @@ def calculate_wer(pred_ids, labels, processor, vocab_string, debug=False):
     # wer = wer_metric.compute(predictions=pred_string, references=label_string)
     wer = 0
     cer = 0
-    for i in range(len(pred_string)):
-        reference = replace_special_tokens_and_normalize(label_string[i], vocab_string, processor)
-        hypothesis = replace_special_tokens_and_normalize(pred_string[i], vocab_string, processor)
-        if reference.replace(" ", "") == "":
-            print('Setence:"', label_string[i],'"ignored for the metrics calculate')
-            continue
 
-        wer += compute_wer(reference, hypothesis)
-        cer += compute_cer(reference, hypothesis)
-    if debug:
-        print(" > DEBUG: \n\n PRED:", pred_string, "\n Label:", label_string)
+    with open("test-output.tsv", mode="a", encoding="utf-8") as f:
+        for i in range(len(pred_string)):
+            reference = replace_special_tokens_and_normalize(label_string[i], vocab_string, processor)
+            hypothesis = replace_special_tokens_and_normalize(pred_string[i], vocab_string, processor)
+            if reference.replace(" ", "") == "":
+                print('Setence:"', label_string[i],'"ignored for the metrics calculate')
+                continue
+
+            wer_t = compute_wer(reference, hypothesis)
+            cer_t = compute_cer(reference, hypothesis)
+            wer += wer_t
+            cer += cer_t
+
+            f.write(f"{label_string[i]}\t{pred_string[i]}\t{reference}\t{hypothesis}\t{wer_t}\t{cer_t}\n")
+
+        if debug:
+            print(" > DEBUG: \n\n PRED:", pred_string, "\n Label:", label_string)
     return wer, cer
 
 class AttrDict(dict):
